@@ -1,0 +1,782 @@
+# baseURI: http://ontologie.crow.nl/bibliotheekspecificatie/201711/
+# imports: http://www.w3.org/2004/02/skos/core
+# prefix: cspec
+
+@prefix cdoc: <http://ontologie.crow.nl/document/201711/> .
+@prefix cspec: <http://ontologie.crow.nl/bibliotheekspecificatie/201711/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cspec:
+  rdf:type owl:Ontology ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "Bart Bink van CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-02-04"^^xsd:date ;
+  spin:imports <http://topbraid.org/spin/rdfsplus> ;
+  rdfs:comment "Dit schema bevat de concepten en relaties die zijn bepaald om de specificaties uit de RAW catalogus en de resultaatsbeschrijvingen te kunnen vastleggen."@nl ;
+  rdfs:label "Specificatieschema"@nl ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "Version 3.2.2" ;
+.
+cspec:AanbevolenProperties
+  rdf:type rdfs:Container ;
+  rdfs:label "Aanbevolen properties"@nl ;
+  rdfs:label "Recommended properties"@en ;
+  rdfs:member dcterms:identifier ;
+  rdfs:member skos:altLabel ;
+  rdfs:member skos:definition ;
+  rdfs:member skos:note ;
+  rdfs:member skos:prefLabel ;
+  rdfs:member skos:related ;
+  rdfs:member skos:scopeNote ;
+.
+cspec:Activiteit
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Activiteit"@nl ;
+  rdfs:label "Activity"@en ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Activiteit ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Iets dat gebeurt"@nl ;
+.
+cspec:Collectie
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Collectie"@nl ;
+  rdfs:label "Collection"@en ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Collectie ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "A meaningful collection of concepts."@en ;
+  skos:definition "Een verzameling van dingen die bij elkaar horen."@nl ;
+.
+cspec:Dataset
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Dataset"@nl ;
+  rdfs:subClassOf cspec:Collectie ;
+  skos:definition "A meaningful collection of triples, that deal with a certain topic, originate from a certain source or process, are hosted on a certain server, or are aggregated by a certain custodian."@gb ;
+  skos:definition "Een Collectie van bibliotheekdata die zijn gepubliceerd om contracten mee op te stellen."@nl ;
+.
+cspec:Eenheid
+  rdf:type owl:Class ;
+  dcterms:created "2017-02-15"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-15"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Eenheid"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  skos:definition "De dimensie van de grootheid waarin een aspect wordt uitgedrukt."@nl ;
+.
+cspec:Fase
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Fase"@nl ;
+  rdfs:label "Phase"@en ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Fase ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Een periode als onderdeel van een langere ontwikkeling."@nl ;
+  skos:example "Design phase"@en ;
+  skos:example "Ontwerpsfase"@nl ;
+.
+cspec:FaseHeeftBetrekkingOp
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Fase ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "fase heeft betrekking op"@nl ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftBetrekkingOpFase ;
+.
+cspec:Functie
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Functie"@nl ;
+  rdfs:label "Function"@en ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Functie ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Een potentieel meetbare prestatie van een object / systeem."@nl ;
+  skos:definition "Providing a service as a measurable capability of a product."@en ;
+  skos:example "Afstand overspannen"@nl ;
+  skos:example "Bridging a distance"@en ;
+.
+cspec:ID
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "ID"@nl ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:Methode
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Method"@en ;
+  rdfs:label "Methode"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Methode ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Een vaste wel doordachte manier van handelen om een bepaald doel te bereiken."@nl ;
+  skos:example "Inspectie"@nl ;
+  skos:example "Inspection"@en ;
+.
+cspec:Object
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Object"@en ;
+  rdfs:label "Object"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Object ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Een door de mens geproduceerd of gerealiseerd voorwerp, constructie, bouwwerk."@nl ;
+  skos:example "Bridge"@en ;
+  skos:example "Brug"@nl ;
+.
+cspec:Raakvlak
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Raakvlak"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Object ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Het punt of gebied dat twee objecten gemeen hebben."@nl ;
+.
+cspec:Specificatie
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Requirement"@en ;
+  rdfs:label "Specificatie"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  skos:definition "Een nadere aanduiding waaraan een product moet voldoen."@nl ;
+.
+cspec:Specificatiecategorie
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Specificatiecategorie"@nl ;
+  rdfs:label "Specification category"@en ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cspec:Specificatiecategorie ;
+      owl:onProperty cspec:bestaatUit ;
+    ] ;
+  skos:definition "Een categorie waar een specificatie toe kan behoren."@nl ;
+.
+cspec:Status
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "Status"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  skos:definition "De stand of toestand van iets"@nl ;
+.
+cspec:URLVanDeDefinitie
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "URL van de definitie"@nl ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:aanwijzingTekst
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "aanwijzingstekst"@nl ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:beschrijving
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "beschrijving"@nl ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:bestaatUit
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "bestaat uit"@nl ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isOnderdeelVan ;
+.
+cspec:bijActiviteitWordtObjectGespecificeerdDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Object ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "bij object wordt activiteit gespecificeerd door"@nl ;
+  rdfs:label "with object an activity is specified by"@en ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:specificeertObjectBijActiviteit ;
+.
+cspec:bijObjectWordtActiviteitGespecificeerdDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Object ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "bij object wordt activiteit gespecificeerd door"@nl ;
+  rdfs:label "with object an activity is specified by"@en ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:specificeertActiviteitBijObject ;
+.
+cspec:bronVanDefinitie
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "bron van de definitie"@nl ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:code
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "code"@nl ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:combinatieWordtUitgeslotenDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:comment "Deze relatie wordt gelegd tussen twee specificaties, waarbij de ene specificatie het uitgesloten wordt door de andere specificatie."@nl ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "combinatie wordt uitgesloten door"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:sluitCombinatieUitMet ;
+.
+cspec:combinatieWordtVereistDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:comment "Deze relatie wordt gelegd tussen twee specificaties, waarbij de ene specificatie het uitgesloten wordt door de andere specificatie."@nl ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "combinatie wordt vereist door"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:wordtInCombinatieVereistDoor ;
+.
+cspec:definitie
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "definitie"@nl ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:handleidingTekst
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "handleidingstekst"@nl ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:heeftBetrekkingOpFase
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "heeft betrekking op fase"@nl ;
+  rdfs:range cspec:Fase ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:FaseHeeftBetrekkingOp ;
+.
+cspec:heeftEenheid
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-15"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-15"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "heeft eenheid"@nl ;
+  rdfs:range cspec:Eenheid ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isEenheidVoor ;
+.
+cspec:heeftLid
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-12"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-12"^^xsd:date ;
+  rdfs:domain cspec:Collectie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "has menber"@en ;
+  rdfs:label "heeft lid"@nl ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isLidVan ;
+.
+cspec:heeftOnderliggende
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-17"^^xsd:date ;
+  rdfs:comment "Deze relatie geeft aan dat de specificatie, functie of activiteit een afgeleide specificatie, functie of activiteit heeft."@nl ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "heeft onderliggende"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isOnderliggendeVan ;
+  skos:altLabel "has derivation"@en ;
+  skos:altLabel "heeft afgeleide"@nl ;
+.
+cspec:heeftStatus
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "has status"@en ;
+  rdfs:label "heeft status"@nl ;
+  rdfs:range cspec:Status ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isStatusVan ;
+.
+cspec:heeftSubcategorie
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Specificatiecategorie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "has subcategory"@en ;
+  rdfs:label "heeft subcategorie"@nl ;
+  rdfs:range cspec:Specificatiecategorie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isSubcategorieVoor ;
+.
+cspec:heeftVariant
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Object ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "heeft variant"@nl ;
+  rdfs:range cspec:Object ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isVariantVan ;
+.
+cspec:heeftVerificatiemethode
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "has verification method"@en ;
+  rdfs:label "heeft verificatiemethode"@nl ;
+  rdfs:range cspec:Methode ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isVerificatiemethodeVoor ;
+.
+cspec:hoortBijDataset
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "hoort bij dataset"@nl ;
+  rdfs:range cspec:Dataset ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isDatasetVoor ;
+.
+cspec:inhoudMethode
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "inhoud methode"@nl ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:isCategorieVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Specificatiecategorie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is categorie voor"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isVanCategorie ;
+.
+cspec:isDatasetVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Dataset ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is dataset voor"@nl ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:hoortBijDataset ;
+.
+cspec:isEenheidVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-15"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-15"^^xsd:date ;
+  rdfs:domain cspec:Eenheid ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is eenheid voor"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftEenheid ;
+.
+cspec:isGespecificeerdDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-15"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cspec:Activiteit
+          cspec:Functie
+          cspec:Object
+          cspec:Raakvlak
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is gespecificeerd door"@nl ;
+  rdfs:label "should fulfill requirement"@en ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:specificeert ;
+.
+cspec:isLidVan
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-12"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-12"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is lid van"@nl ;
+  rdfs:label "is menber of"@en ;
+  rdfs:range cspec:Collectie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftLid ;
+.
+cspec:isOnderdeelVan
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is onderdeel van"@nl ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:bestaatUit ;
+.
+cspec:isOnderliggendeVan
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is onderliggende van"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftOnderliggende ;
+  skos:altLabel "is afgeleid van"@nl ;
+  skos:altLabel "is derivation of"@en ;
+.
+cspec:isStatusVan
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Status ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is status van"@en ;
+  rdfs:label "is status van"@nl ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftStatus ;
+.
+cspec:isSubcategorieVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Specificatiecategorie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is subcategorie voor"@nl ;
+  rdfs:range cspec:Specificatiecategorie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftSubcategorie ;
+.
+cspec:isVanCategorie
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is van categorie"@nl ;
+  rdfs:range cspec:Specificatiecategorie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isCategorieVoor ;
+.
+cspec:isVariantVan
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team.	" ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Object ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is variant van"@nl ;
+  rdfs:range cspec:Object ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftVariant ;
+.
+cspec:isVerificatiemethodeVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Methode ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "is verificatiemethode voor"@nl ;
+  rdfs:label "is verification method for"@en ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:heeftVerificatiemethode ;
+.
+cspec:naam
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "naam"@nl ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf skos:note ;
+.
+cspec:sluitCombinatieUitMet
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:comment "Deze relatie wordt gelegd tussen twee specificaties, waarbij de ene specificatie het niet mogelijk maakt de andere specificatie ook geldig te laten zijn."@nl ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "sluit combinatie uit met"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:combinatieWordtUitgeslotenDoor ;
+.
+cspec:specificeert
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "specificeert"@nl ;
+  rdfs:label "specifies"@en ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cspec:Activiteit
+          cspec:Functie
+          cspec:Object
+          cspec:Raakvlak
+        ) ;
+    ] ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:isGespecificeerdDoor ;
+.
+cspec:specificeertActiviteitBijObject
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "specificeert activiteit bij object"@nl ;
+  rdfs:label "specifies activity at object"@en ;
+  rdfs:range cspec:Object ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:bijObjectWordtActiviteitGespecificeerdDoor ;
+.
+cspec:specificeertObjectBijActiviteit
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "specificeert object bij activiteit"@nl ;
+  rdfs:label "specifies object at activity"@en ;
+  rdfs:range cspec:Activiteit ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:bijActiviteitWordtObjectGespecificeerdDoor ;
+.
+cspec:synoniem
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-22"^^xsd:date ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "synoniem"@nl ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf skos:altLabel ;
+.
+cspec:vervult
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-01"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-01"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cspec:Object
+          cspec:Activiteit
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "vervult"@nl ;
+  rdfs:range cspec:Functie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:wordtVervuldDoor ;
+.
+cspec:wordtInCombinatieVereistDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:comment "Deze relatie wordt gelegd tussen twee specificaties, waarbij de ene specificatie niet geldt zonder de andere specificatie."@nl ;
+  rdfs:domain cspec:Specificatie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "wordt in combinatie vereist door"@nl ;
+  rdfs:range cspec:Specificatie ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:combinatieWordtVereistDoor ;
+.
+cspec:wordtVervuldDoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cspec:Functie ;
+  rdfs:isDefinedBy cspec: ;
+  rdfs:label "wordt vervuld door"@nl ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cspec:Object
+          cspec:Activiteit
+        ) ;
+    ] ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cspec:vervult ;
+.

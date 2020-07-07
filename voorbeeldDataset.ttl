@@ -1,0 +1,1060 @@
+@prefix cdoc: <http://ontologie.crow.nl/document/201711/> .
+@prefix cspec: <http://ontologie.crow.nl/bibliotheekspecificatie/201711/> .
+@prefix data: <http://linkeddata.crow/pcbspecificatie/201904/ecologie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:
+    rdf:type owl:Ontology ;
+    rdfs:label "Provinciaal contractenbuffet Ecologisch Netwerk"@nl ;
+    dcterms:created "2019-04-24"^^xsd:date ;
+    owl:imports
+        cspec:,
+        cdoc: .
+
+data:PCB-Ecologisch-Netwerk-dataset
+    rdf:type cspec:Dataset ;
+    cspec:isDatasetVoor data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "PCB Ecologisch Netwerk - dataset"@nl .
+
+data:PN01
+    rdf:type cspec:Specificatie ;
+    cspec:heeftOnderliggende data:SE00 ;
+    cspec:specificeert data:object-0 .
+
+data:analyse-0
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Er dient op basis van het beheer en onderhoudsbeleid geanalyseerd te worden op welke wijze het (sub)systeem en zijn objecten en componenten te onderhouden zijn, zodat deze past binnen het onderhoudsprogramma van de weg-/vaarwegbeheerder. Deze analyse dient opgenomen te zijn in het beheer en onderhoudsplan definitief-/ uitvoeringsontwerp."@nl ;
+    cspec:heeftBetrekkingOpFase data:do-uo ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SEVE01-07,
+        data:SEVE01-07-01 ;
+    cspec:naam "analyse"@nl .
+
+data:analyse-1
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Er dient op basis van het beheer en onderhoudsbeleid geanalyseerd te worden op welke wijze het (sub)systeem en zijn opjecten en componenten te onderhouden zijn, zodat deze past binnen het onderhoudsprogramma van de weg-/vaarwegbeheerder. Deze analyse dient opgenomen te zijn in het beheer en onderhoudsplan definitief-/ uitvoeringsontwerp."@nl ;
+    cspec:heeftBetrekkingOpFase data:do-uo ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor data:SEVE01-07-02 ;
+    cspec:naam "analyse"@nl .
+
+data:analyse-2
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Gedurende de planfase dient een systeemanalyse gemaakt om de raakvlakken tussen het te bouwen systeem en andere aanwezige systemen te identificeren. Op basis van deze systeemanalyse dienen de eigenaren van deze systemen bepaald te worden en om eisen aan deze systemen te genereren. Op basis van deze eisen dient getoetst te worden of de bestaande systemen blijvend functioneren met het zelfde kwaliteitsniveau. Deze analyse dient opgenomen te zijn in de ontwerp-/verificatienotitie MER/PIP."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE11,
+        data:SE12,
+        data:SE13,
+        data:SE14 ;
+    cspec:naam "analyse"@nl .
+
+data:analyse-3
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Gedurende de planfase dient op basis van het beheer en onderhoudsbeleid geanalyseerd te worden op welke wijze het systeem te onderhouden is, zodat deze past binnen het onderhoudsprogramma van de weg-/vaarwegbeheerder. Deze analyse dient opgenomen te zijn in het beheer en onderhoudsplan MER/PIP."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE07,
+        data:SE07-01,
+        data:SE07-02,
+        data:SE07-03 ;
+    cspec:naam "analyse"@nl .
+
+data:berekening-4
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Er dient een LCC/FMECA berekening gemaakt te worden van het object/component waarop deze methode van toepassing is. Daarbij dient zelfstandig een LCC berekeningsmethode voorgesteld te worden in het verificatieplan. De uiteindelijke berekening dient opgenomen te zijn in de ontwerp-/verificatienotitie definitief ontwerp."@nl ;
+    cspec:heeftBetrekkingOpFase data:do-uo ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SEVE01-04-03,
+        data:SEVE01-05,
+        data:SEVE01-05-02,
+        data:SEVE01-05-03 ;
+    cspec:naam "berekening"@nl .
+
+data:berekening-5
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Er dient een berekening gemaakt te worden van het object/component waarop deze methode van toepassing is. Deze berekening dient gemaakt te worden op basis van het bewijsdocument(en). De uiteindelijke berekening dient opgenomen te zijn in de ontwerp-/verificatienotitie definitief ontwerp."@nl ;
+    cspec:heeftBetrekkingOpFase data:do-uo ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor data:SEVE01-02 ;
+    cspec:naam "berekening"@nl .
+
+data:berekening-6
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "In de planfase dient een LCC/FMECA berekening gemaakt te worden van de verschillende onderdelen van het systeem die aantoont dat het systeem aan de eis voldoet. Deze analyse dient opgenomen te zijn in de ontwerpnotitie MER/PIP."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE05,
+        data:SE05-01,
+        data:SE05-02 ;
+    cspec:naam "berekening"@nl .
+
+data:documentbeoordeling-10
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "In de planfase dient een LCC/FMECA berekening gemaakt te worden van de verschillende onderdelen van het systeem die aantoont dat het systeem aan de eis voldoet. Deze analyse dient opgenomen te zijn in de ontwerpnotitie MER/PIP."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE00,
+        data:SE01,
+        data:SE03,
+        data:SE10 ;
+    cspec:naam "documentbeoordeling"@nl .
+
+data:documentbeoordeling-7
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Gedurende de ontwerpfase dient er een documentbeoordeling plaats te vinden op zowel het definitief - als uitvoeringsontwerp of aan deze eis is voldaan. Deze beoordeling dient opgenomen te zijn in de ontwerp- verificatienotitie definitief-/uitvoeringsontwerpnotitie."@nl ;
+    cspec:heeftBetrekkingOpFase data:do-uo ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SEVE01,
+        data:SEVE01-01,
+        data:SEVE01-01-01,
+        data:SEVE01-01-02,
+        data:SEVE01-01-03,
+        data:SEVE01-03,
+        data:SEVE01-03-01,
+        data:SEVE01-03-02,
+        data:SEVE01-03-03,
+        data:SEVE01-03-04,
+        data:SEVE01-04,
+        data:SEVE01-04-01,
+        data:SEVE01-04-02,
+        data:SEVE01-05-01,
+        data:SEVE01-06,
+        data:SEVE01-08,
+        data:SEVE01-09 ;
+    cspec:naam "documentbeoordeling"@nl .
+
+data:documentbeoordeling-8
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Gedurende de ontwerpfase dient er een documentbeoordeling plaats te vinden op zowel het definitief- als uitvoeringsontwerp of aan deze eis is voldaan. Deze beoordeling dient opgenomen te zijn in de ontwerp- verificatienotitie definitief-/uitvoeringsontwerpnotitie."@nl ;
+    cspec:heeftBetrekkingOpFase data:do-uo ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor data:SEF01 ;
+    cspec:naam "documentbeoordeling"@nl .
+
+data:documentbeoordeling-9
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Gedurende de planfase dient er een documentbeoordeling plaats te vinden op de plankaarten of aan deze eis is voldaan. Deze beoordeling dient opgenomen te zijn in de ontwerp- verificatienotitie MER/PIP."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE02,
+        data:SEV01-01,
+        data:SEZ01,
+        data:SEZ01-01,
+        data:SEZ01-02,
+        data:SEZ01-03,
+        data:SEZ01-04,
+        data:SEZ01-05 ;
+    cspec:naam "documentbeoordeling"@nl .
+
+data:inspectie-11
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Gedurende en na realisatie dient geïnspecteerd te worden dat aan de eis is voldaan."@nl ;
+    cspec:heeftBetrekkingOpFase data:realisatie ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE06-01,
+        data:SE08,
+        data:SE08-01 ;
+    cspec:naam "inspectie"@nl .
+
+data:toets-12
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Het definitief- en uitvoeringsontwerp dient getoetst te worden aan het bewijsdocument(en). Deze toets dient opgenomen te zijn in de ontwerp-/ verificatienotitie definitief ontwerp."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE04-01,
+        data:SE09 ;
+    cspec:naam "toets"@nl .
+
+data:toets-13
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "In de planfase dient het ontwerp getoetst te worden aan het bewijsdocument(en). Deze toets dient opgenomen te zijn in de ontwerpnotitie MER/PIP."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SE04,
+        data:SE04-02,
+        data:SE06 ;
+    cspec:naam "toets"@nl .
+
+data:toets-14
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Na realisatie dient getoetst te worden of het definitieve ontwerp en het daaruit vloeiende uitvoeringsontwerp uitgevoerd zijn conform tekeningen en berekeingen. Deze toets dient opgenomen te zijn in het opleverdossier."@nl ;
+    cspec:heeftBetrekkingOpFase data:realisatie ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor data:SEVE01-01-01 ;
+    cspec:naam "toets"@nl .
+
+data:toets-15
+    rdf:type cspec:Methode ;
+    cspec:beschrijving "Na realisatie dient getoetst te worden of het definitieve ontwerp en het daaruit vloeiende uitvoeringsontwerp uitgevoerd zijn conform tekeningen en berekeningen. Deze toets dient opgenomen te zijn in het opleverdossier."@nl ;
+    cspec:heeftBetrekkingOpFase data:realisatie ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:isVerificatiemethodeVoor
+        data:SEF01,
+        data:SEVE01,
+        data:SEVE01-01,
+        data:SEVE01-01-02,
+        data:SEVE01-01-03,
+        data:SEVE01-02,
+        data:SEVE01-03,
+        data:SEVE01-03-01,
+        data:SEVE01-03-02,
+        data:SEVE01-03-03,
+        data:SEVE01-03-04,
+        data:SEVE01-04,
+        data:SEVE01-04-01,
+        data:SEVE01-04-02,
+        data:SEVE01-04-03,
+        data:SEVE01-05,
+        data:SEVE01-05-01,
+        data:SEVE01-05-02,
+        data:SEVE01-05-03,
+        data:SEVE01-06,
+        data:SEVE01-07,
+        data:SEVE01-07-01,
+        data:SEVE01-07-02,
+        data:SEVE01-08,
+        data:SEVE01-09 ;
+    cspec:naam "toets"@nl .
+
+data:object-0
+    rdf:type cspec:Object ;
+    cspec:heeftOnderliggende data:object-3 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Provinciaal Netwerk"@nl .
+
+data:SE00
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient de natuur- en landschapskwaliteit in stand te houden en te verbeteren"@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "PVVP Provincie Noord-Holland",
+        "PVVP provincie Drenthe",
+        "PVVP provincie Noord-Brabant",
+        "Planstudiedocumenten",
+        "PvvP Beheerst Groeien",
+        "Structuurvisie PZH",
+        "Structuurvisie provincie Overijssel" ;
+    cspec:heeftOnderliggende
+        data:SE01,
+        data:SE02,
+        data:SE03,
+        data:SE04,
+        data:SE05,
+        data:SE06,
+        data:SE07,
+        data:SE08,
+        data:SE09,
+        data:SE10,
+        data:SE11,
+        data:SE12,
+        data:SE13,
+        data:SE14 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient de biodiversiteit te verbeteren."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Verbeteren biodiversiteit"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient het verblijven en het zelfstandig verplaatsen van doelsoorten mogelijk te maken."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende data:SEZ01 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische netwerk, Verblijven soorten"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient verbinden tussen populaties te faciliteren."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende data:SEV01-01 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Verbinden van populaties"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE04
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient de veiligheid van gebruikers, onderhoudspersoneel en hulpdiensten te waarborgen."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SE04-01,
+        data:SE04-02 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Veiligheid"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE04-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk en zijn onderdelen dienen beschermd en/of beveiligd te worden tegen moedwillige verstoringen."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Veiligheid, Beschermen of beveiligen tegen moedwillige verstoringen"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE04-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient de veiligheid van gebruikers, onderhoudspersoneel en hulpdiensten te waarborgen met betrekking tot het bezwijken van constructies."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Veiligheid, Constructieve veiligheid"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE05
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient een beschikbaarheid en betrouwbaarheid te bieden van (NTB)%."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SE05-01,
+        data:SE05-02 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Beschikbaarheid en Betrouwbaarheid"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE05-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Wegennet dient een ontwerplevensduur te hebben van minimaal 100 jaar, tenzij anders is aangegeven in de subspecificaties."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Beschikbaarheid en Betrouwbaarheid, Levensduur Ecologisch netwerk"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE05-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk en onderdelen daarvan met een ontwerplevensduur kleiner dan de ontwerplevensduur van het Ecologisch netwerk dienen vervangbaar te zijn zonder dat constructies of delen daarvan gesloopt en/of afgebroken dienen te worden."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Beschikbaarheid en Betrouwbaarheid, Ontwerplevensduur vervangbare onderdelen"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE06
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient gedurende de uitvoeringsfase en de beheer en onderhoudsfase niet te leiden tot grotere omgevingshinder dan bij start van de uitvoeringsfase."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende data:SE06-01 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Omgevingshinder"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE06-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient niet te leiden tot hinderlijke trillingen voor de omgeving, zowel gedurende de uitvoeringsfase als de beheer en onderhoudsfase."@nl ;
+    cspec:heeftBetrekkingOpFase data:realisatie ;
+    cspec:heeftBron "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Omgevingshinder, Trillingen"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE07
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient geschikt te zijn voor het uitvoeren van groot onderhoud."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SE07-01,
+        data:SE07-02,
+        data:SE07-03 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Onderhoudbaarheid"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE07-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient aan te sluiten bij het onderhoudsprogramma van de beheerders."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Onderhoudbaarheid, Aansluiten onderhoudsprogramma"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE07-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient zodanig te zijn dat elke (NTB) jaar de mogelijkheid tot groot onderhoud."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Onderhoudbaarheid, Uitvoeren groot onderhoud"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE07-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient zodanig te zijn dat variabel onderhoud mogelijk is."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Onderhoudbaarheid, Uitvoeren variabel onderhoud"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE08
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch systeem dient, binnen de projectgrenzen, vrij te zijn van constructies en onderdelen daarvan die door de aanleg van het Ecologisch netwerk hun functie verliezen of reeds voor deze aanleg hun functie al verloren hadden."@nl ;
+    cspec:heeftBetrekkingOpFase data:realisatie ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende data:SE08-01 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Sloopbaarheid"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE08-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk en zijn onderdelen dienen aan het einde van zijn/haar levensduur verwijderbaar te zijn zonder schade aan de omgeving te veroorzaken."@nl ;
+    cspec:heeftBetrekkingOpFase data:realisatie ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Sloopbaarheid, Einde levensduur"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE09
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient als duurzaam systeem te worden ontwikkeld."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Duurzaamheid"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE10
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient het Profiel van Vrije Ruimte (PVR) van kruisende systemen te waarborgen."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Profiel van Vrije Ruimte"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE11
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient functies, buiten de project- en/of systeemgrenzen, welke door de realisatie van het Ecologisch netwerk beïnvloedt zijn/worden, te handhaven met het huidige kwaliteitsniveau."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Behouden externe functies"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE12
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient aan te sluiten op zijn/haar omgeving, zodanig dat alle functies zowel binnen als buiten het Ecologisch netwerk ongehinderd worden uitgeoefend."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Aansluiten op omgeving"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE13
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient een werkend Ecologisch netwerk te zijn, waarin alle onderdelen op elkaar zijn afgestemd en de vereiste functies leveren op het vereiste prestatie- en kwaliteitsniveau."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Aansluiting binnen het netwerk"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SE14
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient bestaande functies binnen de project- en/of systeemgrenzen welke door de realisatie van het Ecologisch netwerk beïnvloedt zijn/worden, te handhaven met het huidige kwaliteitsniveau."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Behouden externe functies"@nl ;
+    cspec:specificeert data:object-3 .
+
+data:SEV01-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecologische verbindingen dienen geschikt te zijn voor de volgende doelsoorten: (projectspecifiek bepalen)."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SEF01,
+        data:SEVE01 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische netwerk, Verbinden van populaties, Specifieke doelsoorten"@nl ;
+    cspec:specificeert data:object-5 .
+
+data:SEZ01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecologische verbindingszone dient het verblijven en het verplaatsen door doelsoorten mogelijk te maken."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SEZ01-01,
+        data:SEZ01-02,
+        data:SEZ01-03,
+        data:SEZ01-04,
+        data:SEZ01-05 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk, Verblijven soorten, Ecologische zone"@nl ;
+    cspec:specificeert data:object-4 .
+
+data:SEZ01-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecologische verbindingszone dient een natuurlijke overgang te faciliteren met de omgeving."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingszone, Verblijven soorten, Verzorgen overgang"@nl ;
+    cspec:specificeert data:object-4 .
+
+data:SEZ01-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecologische verbindingszone dient afgeschermd te zijn van omgevingselementen die fauna slachtoffers kunnen veroorzaken."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingszone, Verblijven soorten, Afschermen doelsoorten"@nl ;
+    cspec:specificeert data:object-4 .
+
+data:SEZ01-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecologische verbindingszone dient abiotische, biotische en antropogene condities in de verbindingszone te borgen zodat er een homogene landschappelijke eenheid ontstaat."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingszone, Verblijven soorten, Homogene eenheid"@nl ;
+    cspec:specificeert data:object-4 .
+
+data:SEZ01-04
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecologische verbindingszone dient habitats te hebben voor de volgende doelsoorten: (projectspecifiek bepalen)."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingszone, Verblijven soorten, Specifieke doelsoorten"@nl ;
+    cspec:specificeert data:object-4 .
+
+data:SEZ01-05
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecologisch netwerk dient de waterhuishouding en het verblijven van water gerelateerde doelsoorten te faciliteren."@nl ;
+    cspec:heeftBetrekkingOpFase data:mer-pip ;
+    cspec:heeftBron
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingszone, Verblijven soorten, Waterhuishouding borgen"@nl ;
+    cspec:specificeert data:object-4 .
+
+data:object-5
+    rdf:type cspec:Object ;
+    cspec:heeftOnderliggende
+        data:object-5-1,
+        data:object-5-2 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingen"@nl .
+
+data:object-5-1
+    rdf:type cspec:Object ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecopassages"@nl .
+
+data:SEF01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Ecopassage dient het onderlangs kruisen van doelsoorten ter plaatse van barrieres mogelijk te maken."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron
+        "Gedragscode IPO",
+        "Handboek Flora en Fauna Overijssel",
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Onderlangs kruisen"@nl ;
+    cspec:specificeert data:object-5-1 .
+
+data:SEVE01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient het bovenlangs kruisen van doelsoorten ter plaatse van barrieres mogelijk te maken."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron
+        "Gedragscode IPO",
+        "Natuurbeheerplan Drenthe",
+        "Natuurbeheerplan Overijssel",
+        "Natuurbeheerplan PZH",
+        "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SEVE01-01,
+        data:SEVE01-02,
+        data:SEVE01-03,
+        data:SEVE01-04,
+        data:SEVE01-05,
+        data:SEVE01-06,
+        data:SEVE01-07,
+        data:SEVE01-08,
+        data:SEVE01-09 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingen, Bovenlangs kruisen"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient ruimte te bieden aan de doelsoorten."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "Planstudiedocumenten" ;
+    cspec:heeftOnderliggende
+        data:SEVE01-01-01,
+        data:SEVE01-01-02,
+        data:SEVE01-01-03 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Ruimte bieden"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-01-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient ruimte te bieden aan de doelsoorten (NTB) en het ongehinderd gebruik daarvan."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Ruimte bieden, Ruimte bieden boven"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-01-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient ruimte te bieden aan de onderliggende systemen (NTB) en het ongehinderd gebruik daarvan."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Ruimte bieden, Ruimte bieden onder"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-01-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient een functionele breedte te hebben van minimaal (NTB) m."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "Planstudiedocumenten" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Ruimte bieden, Faciliteren doelsoorten"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient alle van toepassing zijnde belastingen te kunnen dragen."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Dragen belastingen"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient een grondpakket te hebben dat zodanig is opgebouwd en grondsoorten bevat dat dit geschikt is voor de gekozen doelsoorten."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:heeftOnderliggende
+        data:SEVE01-03-01,
+        data:SEVE01-03-02,
+        data:SEVE01-03-03,
+        data:SEVE01-03-04 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Waarborgen gebruik"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-03-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient een grondpakket te hebben dat geschikt is voor het gekozen assortiment beplanting."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Waarborgen gebruik, Waarborgen plantengroei"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-03-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient te zijn voorzien van voorzieningen voor permanente vochtregulatie aan beplanting."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Waarborgen gebruik, Waarborgen vochtregulatie"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-03-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient in beide aanlooptaluds voorzien te zijn van (NTB) poel(en)."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Waarborgen gebruik, Waarborgen leefgebied"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-03-04
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient aan beide zijden te zijn voorzien van afschermingen om passerende doelsoorten af te schermen van kruisende systemen."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Waarborgen gebruik, Afschermen van omgeving"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-04
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient veilig te zijn voor natuurvorsers, onderhoudspersoneel en gebruikers."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:heeftOnderliggende
+        data:SEVE01-04-01,
+        data:SEVE01-04-02,
+        data:SEVE01-04-03 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Veiligheid"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-04-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient geen gevaar op te leveren voor de veiligheid op het onderliggende systeem door de afvoer van hemelwater op het Ecoduct."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Veiligheid, Afvoer hemelwater"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-04-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient ter plaatse van niveauverschillen voorzien te zijn van een afscheiding."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen Barrieres, Veiligheid, Veiligheid personen"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-04-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient geen losse onderdelen te bevatten of onderdelen die met eenvoudig handgereedschap wegneembaar zijn."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Veiligheid, Vandalismebestendigheid"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-05
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "De Vaste viaducten dienen beschikbaar te zijn voor onderhoudspersoneel en gebruikers."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:heeftOnderliggende
+        data:SEVE01-05-01,
+        data:SEVE01-05-02,
+        data:SEVE01-05-03 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Beschikbaarheid"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-05-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient de betonnen oppervlakken te beschermen tegen indringing van uit dooizouten afkomstige chloride."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Beschikbaarheid, Beschermen oppervlakten"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-05-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient een levensduur te hebben van minimaal 100 jaar."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Beschikbaarheid, Levensduur constructie"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-05-03
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving """Het Ecoduct en zijn volgende onderdelen dienen een levensduur te hebben van:
+- Opleggingen: 25 jaar
+- Leuningen: 25 jaar
+- Stalen onderdelen: 40 jaar
+- Houten onderdelen: 25 jaar"""@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Beschikbaarheid, Levensduur onderdelen"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-06
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient te voldoen aan de eisen uit het vormgevings-document (naam document)."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Beeldkwaliteit en vormgeving"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-07
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient onderhoudbaar te zijn met behulp van regulier materieel en personeel."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:heeftOnderliggende
+        data:SEVE01-07-01,
+        data:SEVE01-07-02 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Onderhoudbaarheid"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-07-01
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient gedurende de levensduur op een gebruikelijke en acceptabele wijze geïnspecteerd en onderhouden te kunnen worden."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Onderhoudbaarheid constructies, Inspecteren en onderhouden"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-07-02
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient, voor zijn onderdelen met een kortere levensduur dan 100 jaar, eenvoudig inspecteerbaar, onderhoudbaar en vervangbaar te zijn."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Onderhoudbaarheid constructies, Vervangbaarheid onderdelen"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-08
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient water zodanig af te voeren dat het waterafvoersysteem van het Ecoduct aansluit op het waterafvoersysteem van het onderliggende systeem."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Afvoeren water"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:SEVE01-09
+    rdf:type cspec:Specificatie ;
+    cspec:beschrijving "Het Ecoduct dient vrij te zijn van hoogteverschillen tussen de bovenbouw van het Ecoduct en de aanlooptaluds naar het ecoduct."@nl ;
+    cspec:heeftBetrekkingOpFase
+        data:do-uo,
+        data:realisatie ;
+    cspec:heeftBron "B07.02" ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Kruisen barrieres, Aansluiten op aardebaan"@nl ;
+    cspec:specificeert data:object-5-2 .
+
+data:object-4
+    rdf:type cspec:Object ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologische verbindingszone"@nl .
+
+data:object-3
+    rdf:type cspec:Object ;
+    cspec:heeftOnderliggende
+        data:object-4,
+        data:object-5 ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecologisch netwerk"@nl .
+
+data:object-5-2
+    rdf:type cspec:Object ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Ecoduct"@nl .
+
+data:do-uo
+    rdf:type cspec:Fase ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "DO/UO"@nl .
+
+data:realisatie
+    rdf:type cspec:Fase ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "Realisatie"@nl .
+
+data:mer-pip
+    rdf:type cspec:Fase ;
+    cspec:isLidVan data:PCB-Ecologisch-Netwerk-collectie ;
+    cspec:naam "MER/PIP"@nl .
+
+data:PCB-Ecologisch-Netwerk-collectie
+    rdf:type cspec:Collectie ;
+    cspec:naam "PCB Ecologisch Netwerk - collectie"@nl .
+

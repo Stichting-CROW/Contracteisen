@@ -1,6 +1,6 @@
 # Contracteisen
 
-Bij CROW werken partijen samen aan contracteisen voor de sector.
+Bij CROW werken partijen samen aan contracteisen voor de sector. Deze contracteisen worden gepubliceerd op het Linked Data Platfrom van CROW. Overheden en hun opdrachtnemers die een overeenkomst hebben met CROW krijgen toegang tot de contracteisen op het Linked Data Platform om deze te kunnen toepassen in geïntegreerde contracten. De contracteisen zelf staan daarom niet op deze Github.
 
 # CSPEC
 CSPEC is het datamodel voor het publiceren van contracteisen. 

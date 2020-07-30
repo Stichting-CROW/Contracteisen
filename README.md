@@ -25,4 +25,4 @@ CDOC is het datamodel voor het tonen van datasets in de kennisbank en in ProCont
 
 # Aanleverspecificaties
 Om de aangeleverde data in het Linked Data Platform van CROW  op te kunnen nemen moet deze voldoen aan de Aanleverspecificaties van CROW.
-Een uitgebreide beschrijving van de Aanleverspecificaties, de datamodellen en werkwijzen is te vinden in de [ReSpec documentatie](LINK) van deze GitHub.
+Een uitgebreide beschrijving van de Aanleverspecificaties, de datamodellen en werkwijzen is te vinden in de [ReSpec documentatie](https://stichting-crow.github.io/Contracteisen/) van deze GitHub.

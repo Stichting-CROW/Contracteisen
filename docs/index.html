@@ -1,3 +1,13 @@
+<!--TODO
+	1. Elisabeth heeft nog opmerkingen geplaatst in het bestand: 20180508 Toelichting bij classes en relaties in CROW-datamodellen CSPEC en CDOC v2.0 in bewerking. 
+	Deze zijn niet allemaal verwerkt hierin.
+
+	2. Checken of de juiste schema's gebruikt zijn. 3.2.3. of 4.0.0??
+
+	3. Spellingscontrole
+
+	4. Betere sync tussen ttl's en ReSpec (nu ontbreken zaken)
+-->
 <!DOCTYPE html>
 <html lang='nl'>
 	
@@ -77,7 +87,7 @@ Deze ReSpec beschrijft de aanleverspecificaties van het CROW Dataplatform en de 
 # Inleiding
 
 Deze ReSpec bevat de aanleverspecificaties en de gehanteerde datamodellen voor het Dataplatform van CROW. 
-Het maakt deel uit van de complete set aan documentatie die CROW beschikbaar heeft omtrent het CROW Linked Data Platform (verder: (<abbr title="LinkedData Platform"><a>LDP</a></abbr>). 
+Het maakt deel uit van de complete set aan documentatie die CROW beschikbaar heeft omtrent het CROW Linked Data Platform (verder: (<abbr title="LinkedData Platform"><a>LDP</a></abbr>). Al deze documentatie en bijbehorende bestanden zijn te vinden op de CROW Contracteisen GitHub omgeving: [https://github.com/Stichting-CROW/Contracteisen](https://github.com/Stichting-CROW/Contracteisen)
 	
 <a>Aanleverspecificaties</a> zijn voorwaarden waaraan een data(set) van een producent moet voldoen waaronder CROW de data(set) kan accepteren voor opname in het dataplatform.
 
@@ -256,6 +266,47 @@ De dataset moet als separaat Turtle-bestand (.ttl) worden aangeleverd bij CROW (
 
 Het Turtle-bestand dient in lijn te zijn met de W3C Recommendation RDF 1.1 Turtle, gepubliceerd op  <a href="http://www.w3.org/TR/turtle/">www.w3.org/TR/turtle</a>.
 
+## Voorbeeld
+
+Een voorbeeld dataset is te vinden op de GitHub omgeving: 
+
+[VoorbeeldDataset.ttl](https://github.com/Stichting-CROW/Contracteisen/blob/master/voorbeeldDataset.ttl)
+
+<aside class="example" title="Snipped uit voorbeeldDataset.ttl">
+
+```turtle
+@prefix cdoc: <http://ontologie.crow.nl/document/201711/> .
+@prefix cspec: <http://ontologie.crow.nl/bibliotheekspecificatie/201711/> .
+@prefix data: <http://linkeddata.crow/pcbspecificatie/201904/ecologie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:
+    rdf:type owl:Ontology ;
+    rdfs:label "Provinciaal contractenbuffet Ecologisch Netwerk"@nl ;
+    dcterms:created "2019-04-24"^^xsd:date ;
+    owl:imports
+        cspec:,
+        cdoc: .
+
+data:PCB-Ecologisch-Netwerk-dataset
+    rdf:type cspec:Dataset ;
+    cspec:isDatasetVoor data:PCB-Ecologisch-Netwerk-collectie ;
+	cspec:naam "PCB Ecologisch Netwerk - dataset"@nl .
+
+...
+```
+</aside>
+
+<pre id="voorbeeldDataset snipped">
+	<code   class="turtle"
+			data-include-format="text"
+			data-include="voorbeeldDataset snipped.ttl"></code>
+  </pre>
+
 </section>
 
 <section  id="5">
@@ -265,6 +316,10 @@ In de volgende secties worden de classes en relaties toegelicht uit 2 datamodell
 
 1.	Het CROW Specificatieschema <a>CSPEC</a>: volgens dat schema worden de specificaties gestructureerd. Dit schema wordt door CROW gebruikt voor het publiceren van de Standaard RAW Bepalingen als de RAW Catalogus Bepalingen.
 2.	Het CROW Documentschema: <a>CDOC</a>: dit model beschrijft de publicatiestructuur voor de CROW Basisspecificaties en de resultaatsbeschrijvingen. De specificaties van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen volgen de structuur van hoofdstuk, deelhoofdstuk, paragraaf en artikel. De CROW specificaties van de RAW Catalogus Resultaatsbeschrijvingen opgebouwd volgens werkcategorie, subwerkcategorie en romptekst.
+
+De datamodellen zijn te vinden op de [GitHub omgeving](https://github.com/Stichting-CROW/Contracteisen), onder de noemers:
+* SpecificatieSchema_v***.ttl
+* DocumentSchema_v***.ttl
 
 <p class="note" title="Eisen aan data van derden">
 	<i>In relatie tot de eisen die we stellen aan data van derden kan CROW uiteraard ook besluiten bepaalde data-inhoud niet mee te nemen in de publicatie. Bijvoorbeeld omdat de markt er nog niet rijp voor is of omdat de keuzes stand heden nog te arbitrair zijn en niet robuust genoeg voor software(ontwikkeling).

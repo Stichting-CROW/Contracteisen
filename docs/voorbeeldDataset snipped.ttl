@@ -1,0 +1,23 @@
+@prefix cdoc: <http://ontologie.crow.nl/document/201711/> .
+@prefix cspec: <http://ontologie.crow.nl/bibliotheekspecificatie/201711/> .
+@prefix data: <http://linkeddata.crow/pcbspecificatie/201904/ecologie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+data:
+    rdf:type owl:Ontology ;
+    rdfs:label "Provinciaal contractenbuffet Ecologisch Netwerk"@nl ;
+    dcterms:created "2019-04-24"^^xsd:date ;
+    owl:imports
+        cspec:,
+        cdoc: .
+
+data:PCB-Ecologisch-Netwerk-dataset
+    rdf:type cspec:Dataset ;
+    cspec:isDatasetVoor data:PCB-Ecologisch-Netwerk-collectie ;
+	cspec:naam "PCB Ecologisch Netwerk - dataset"@nl .
+
+...

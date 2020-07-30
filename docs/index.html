@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang='nl'>
+	
+<head>
+	<meta charset='utf-8'>
+	<title>Aanleverspecificaties datasets derden CROW-dataplatform</title>
+	<script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'></script>
+	<script class='remove'>
+		var respecConfig = {
+			isPreview: true,
+			logos: [{
+				src: "https://www.crow.nl/medialibrary/CROW/img/CROW-logo.svg",
+				href: "http://crow.nl",
+				alt: "CROW",
+				width: 150,
+				height: 75,
+				id: 'logo-CROW',
+			}],
+			specStatus: "base",
+			xref: true,
+			format: "markdown",
+			editors: [
+				{
+					name: "CROW",
+					company: "CROW",
+					companyURL: "https://www.crow.nl/",
+					mailto: "linked-data@crow.nl",
+					
+				}
+			],
+			github: "https://github.com/Stichting-CROW/Contracteisen/",
+			shortName: "CROW",
+			
+			additionalCopyrightHolders: "Stichting CROW, Ede", 
+			otherLinks: [
+				{
+					key: "Zie ook",
+					data: [{
+					value: "CROW Informatiemanagement",
+					href: "https://www.crow.nl/thema-s/informatiemanagement"
+					},
+					{
+					value: "Blog: Aanleverspecificaties en het datamodel",
+					href: "https://crow.nl/blog/maart-2019/aanleverspecificaties-en-het-datamodel"
+					}
+					]
+  				}
+				  ],
+				  
+				  						
+		};
+	</script>
+	
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;width:100%;}
+		.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+		  overflow:hidden;padding:5px 10px;word-break:normal;}
+		.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+		  font-weight:normal;overflow:hidden;padding:5px 10px;word-break:normal;}
+		.tg .tg-m5kd{background-color:#d9d9d9;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+		.tg .tg-f8tv{border-color:inherit;text-align:left;vertical-align:top;width:15%;}
+		.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+		</style>
+
+</head>
+<noscript>Dit bestand werkt alleen in de nieuwste (Chromium based) versie van Microsoft Edge, <a href="https://github.com/w3c/respec/issues/723">zie #723 bij W3C/Respec</a>.</noscript>
+
+<section id='abstract'>
+Deze ReSpec beschrijft de aanleverspecificaties van het CROW Dataplatform en de datamodellen van CROW die gehanteerd worden. Er wordt ingegaan op het publicatieproces, de wijze van aanlevering, de eisen aan de datasets, de definities van Classes en Relaties en de juiste semantiek.
+</section>
+
+<!-- <section id='sotd'>
+</section> -->
+
+<section>
+
+# Inleiding
+
+Deze ReSpec bevat de aanleverspecificaties en de gehanteerde datamodellen voor het Dataplatform van CROW. 
+Het maakt deel uit van de complete set aan documentatie die CROW beschikbaar heeft omtrent het CROW Linked Data Platform (verder: (<abbr title="LinkedData Platform"><a>LDP</a></abbr>). 
+	
+<a>Aanleverspecificaties</a> zijn voorwaarden waaraan een data(set) van een producent moet voldoen waaronder CROW de data(set) kan accepteren voor opname in het dataplatform.
+
+<a>Datamodel</a> beschrijft hoe de gegevens in het LDP gestructureerd zijn. 
+		
+Binnen het publicatieproces wordt er onderscheid gemaakt tussen drie rollen:
+1. <a>Producent</a>
+2. <a>Publicist</a>
+3. <a>Consument</a>
+
+Elke rol heeft zijn eigen taken/verantwoordelijkheden. In de volgende sectie worden deze nader toegelicht.
+
+## Het Publicatieproces
+
+Op hoofdlijnen onderscheiden we 4 stappen in het publicatieproces:
+
+
+<img src="Aanleverspecs_ProducentPublicistConsument.png" alt="Publicatieproces" style="width:595px;height:290px;" />
+
+1. De <a>producent</a> levert een dataset aan bij de <a>publicist</a>.
+2. De <a>publicist</a> publiceert de dataset in het het <a>LDP</a>.
+3. De <a>publicist</a> zorgt ervoor dat de dataset beschikbaar is in het CROW Kennisbank en/of voor de relevante webservice(s)/endpoint(s).
+4. De <a>consument</a> kan een eindgebruiker zijn of een software systeem die data uit het dataplatform haalt voor eigen gebruik. Dit kan bijvoorbeeld door het ophalen van data met zijn/haar software door middel van een webservice.
+
+In de sectie [Eisen aan de dataset](#4) worden de eisen die CROW stelt aan de kwaliteit van aan te leveren datasets bij CROW <i>(=Stap 1)</i> uiteengezet. Informatie over andere stappen of onderdelen van het publicatieproces is opgenomen in andere delen van de documentatie. Hiervoor kunt u contact opnemen met CROW. Na publicatie van een dataset wordt door CROW de URI van de dataset gedeeld met de <a>Producent</a>.
+</section>
+			
+<section>
+
+# Definities 
+
+Deze sectie beschrijft de definities zoals deze gehanteerd worden binnen de <a>aanleverspecificaties</a>.
+
+## Algemeen
+
+<table style="width:100%">
+	<tr>
+		<th>Term</th>
+		<th>Definitie</th>
+	</tr>
+	<tr>
+		<td><dfn>Class diagram</dfn></td>
+		<td>Diagram dat de informatiestructuur weergeeft door middel van klassen, attributen en relaties.</td>
+	</tr>
+	<tr>
+		<td><dfn>Semantiek</dfn></td>
+		<td>De onderliggende samenhang van elementen en de betekenis van ieder element in die samenhang.</td>
+	</tr>
+	<tr>
+		<td><dfn>SKOS</dfn></td>
+		<td>SKOS (Simple Knowledge Organization System) is een W3C initiatief dat zich bezig houdt met het ontwikkelen van specificaties en standaarden om het gebruik van kennisorganisatiesystemen (KOS) te ondersteunen, zoals thesauri, classificatie schema’s, vakgroep systemen en taxonomieën binnen het framework van het semantisch web. SKOS biedt een standaard manier om kennisorganisatiesystemen te representeren waarbij gebruik wordt gemaakt van het Resource Description Framework (RDF).</td>
+	</tr>
+	<tr>
+		<td><dfn>CSPEC</dfn></td>
+		<td>CROW Specificatieschema, volgens dit schema worden de specificaties gestructureerd</td>
+	</tr>
+	<tr>
+		<td><dfn>CDOC</dfn></td>
+		<td>CROW Documentschema. Dit model beschrijft de publicatiestructuur voor de CROW Basisspecificaties en de resultaatsbeschrijvingen</td>
+	</tr>
+	<tr>
+		<td><dfn>Structuur</dfn></td>
+		<td>De opbouw van informatie in het bestand.</td>
+	</tr>		
+	<tr>
+		<td><dfn>XML</dfn></td>
+		<td>Extensible Markup Language, een standaard van W3C om gestructureerde gegevens in platte tekst weer te kunnen geven</td>
+	</tr>				
+</table>
+
+## Definities binnen dit document
+	
+<table style="width:110%">
+	<tr>
+		<th>Term</th>
+		<th>Definitie</th>
+	</tr>
+	<tr>
+		<td><dfn>Aanleverspecificaties</dfn></td>
+				<td>Voorwaarden waaraan een data(set) van een producent moet voldoen waaronder CROW de data(set) kan accepteren voor opname in het dataplatform. zijn voorwaarden waaraan een data(set) van een producent moet voldoen waaronder CROW de data(set) kan accepteren voor opname in het dataplatform. </td>
+	</tr>
+	<tr>
+		<td><dfn>LDP</dfn></td>
+		<td>Linked Data Platform. Online omgeving (database en tooling) van CROW waarin datasets van zowel CROW, collectieven als individuele organisaties opgeslagen kunnen worden. De datasets in deze database kunnen beschikbaar worden gesteld aan externe gebruikers zodat zij tijd- en plaats onafhankelijk beschikking hebben over de laatste versie van die dataset. </td>
+	</tr>
+	<tr>
+		<td><dfn>Datamodel</dfn></td>
+		<td>Met een datamodel, of gegevensmodel, wordt beschreven hoe de gegevens in het LDP gestructureerd zijn. </td>
+	</tr>
+	<tr>
+		<td><dfn>Producent</dfn></td>
+		<td>Eigenaar van een dataset: de organisatie die de dataset heeft ontwikkeld en aanlevert c.q. heeft aangeleverd bij de publicist. 
+			<br>Verantwoordelijk voor de juistheid van de data: kwaliteit, volledigheid, betrouwbaarheid.</td>
+	</tr>
+	<tr>
+		<td><dfn>Publicist</dfn></td>
+		<td>De organisatie die de dataset opslaat in het LDP en vanuit beschikbaar stelt aan consumenten. 
+			<br>Verantwoordelijk voor (1) het publicatieproces en (2) voor de beschikbaarheid van de dataset.</td>
+	</tr>
+	<tr>
+		<td><dfn>Consument</dfn></td>
+		<td>Eindgebruiker van de data: persoon (c.q. de software die hij/zij gebruikt) die gebruik maakt van een gepubliceerde dataset. Bijvoorbeeld door deze te bekijken of toe te passen bij het opstellen van een contractdocument. 
+			<br>Verantwoordelijk voor het verkrijgen en bezitten van juiste verificatiegegevens en/of CROW producten voor het ophalen/bevragen van de data.</td>
+	</tr>				
+</table>		
+	
+</section>
+
+
+<section id="3">
+		  
+# Wijze van aanlevering
+
+CROW biedt op dit moment één methode om datasets aan te leveren. Dit is een aanlevering van een dataset per e-mail. 
+In de toekomst zal dit via een webformulier worden geregeld via de website van CROW. 
+
+Elke dataset dient als los bestand bij de begeleidende e-mail gevoegd te worden en bestaat uit het volgende bestandsformaat:
+* .ttl (Terse RDF Triple Language) Syntax om de dataset in RDF framework te beschrijven. 
+
+In dezelfde e-mail moeten de volgende zaken worden benoemd:
+* Contactgegevens van de volgende personen:
+ * Eigenaar dataset: algemeen aanspreekpunt voor CROW
+ * Technisch aanspreekpunt: voor vragen over de semantische structuur, modellering etc.
+ * Aanspreekpunt voor klantvragen: voor het doorsturen van vragen van eindgebruikers van die dataset.
+* Indien het een nieuwe versie betreft van een eerder gepubliceerde dataset:
+ * Verwijzing naar de vorige versie van de dataset. Let op: ten behoeve van versiebeheer is het noodzakelijk om te vermelden wat de verschillen zijn tussen de versies.
+
+</section>
+
+<section  id="4">
+
+# Eisen aan de dataset
+
+In deze sectie worden de minimale eisen beschreven waaraan een dataset moet voldoen.
+
+## Eisen aan de inhoud
+
+De <a>Producent</a> van de data is verantwoordelijk voor de juistheid van de data (kwaliteit, volledigheid, betrouwbaarheid).
+CROW stelt op dit moment enkel eisen aan de semantiek en structuur. Deze worden beschreven in de volgende secties. 
+
+## Eisen aan het model 
+<b>Eis 1:</b> Door CROW gepubliceerde model, <a>CSPEC</a>, dient als basis te worden gebruikt voor het definiëren van classes en relaties. Indien in de dataset classes en/of relaties voorkomen die afwijken, dan wordt de dataset niet meegenomen ter publicatie.
+
+Het door CROW gepubliceerde model, <a>CDOC</a>, is optioneel om te gebruiken.
+
+Voorbeeld:
+In <a>CSPEC</a> en <a>CDOC</a> staan restricties m.b.t. de domain en range van de relaties die nauwkeurig gevold moet worden.
+<p class="note" title="Domain, Ranges en restricties">
+	<i>Domain is wat er links staat van de relatie. En rechts staat de range van de relatie. De restrictie is de regel die geldt voor deze. De domain en ranges met daarbij behorende restrictie zijn terug te vinden in het CROW datamodel</i>
+  </p>	
+
+De relaties en klassen in <a>CSPEC</a> en <a>CDOC</a> zijn beschreven in het volgende document: 
+<p class="ednote" title="This section will be reformatted">
+	“Toelichting bij classes en relaties in CROW-datamodellen <a>CSPEC</a> en <a>CDOC</a> v1.0, dd 08-05-2018” (de actuele versie van dit document is op te vragen bij CROW).
+  </p>
+  
+
+In onderstaande figuur is het class diagram van <a>CSPEC</a> weergegeven. Dit class diagram beschrijft welke entiteiten bekend zijn in de CROW-datamodellen en beschikbaar voor instantiering. De betekenis van de data is beschreven d.m.v  de relaties tussen de entiteiten.
+
+In het class diagram ligt tevens vast welke entiteiten en relaties <span style="color:red">verplicht</span>. zijn, welke <span style="color:yellow">optioneel</span>. zijn en welke niet verplicht zijn. De optionele klassen of relaties houden in dat er in ieder geval 1 of meer entiteiten <b>moeten</b> aangeleverd zijn. 
+
+
+<b>Eis 2:</b>  De volgende modelleer constructies dienen minimaal in de dataset aanwezig te zijn:
+* Alle specificaties c.q. eisen dienen geclassificeerd te zijn als `cspec:Specificatie`
+* Elke instantie van `cspec:Specificatie` dient d.m.v. de relatie `cspec:specificeert` gekoppeld te zijn aan minimaal &#233;&#233;n van de volgende concepten:
+ * `cspec:Object`
+ * `cspec:Activiteit`
+ * `cspec:Functie`
+ * `cspec:Raakvlak`
+
+<img src="Aanleverspecs_specificatieschema.png" alt="Specificatieschema" style="width:764px;height:538px;">
+
+## Eisen aan de vorm
+
+De dataset moet als separaat Turtle-bestand (.ttl) worden aangeleverd bij CROW (zie de sectie [Wijze van aanlevering](#3))
+
+Het Turtle-bestand dient in lijn te zijn met de W3C Recommendation RDF 1.1 Turtle, gepubliceerd op  <a href="http://www.w3.org/TR/turtle/">www.w3.org/TR/turtle</a>.
+
+</section>
+
+<section  id="5">
+# CROW-datamodellen
+
+In de volgende secties worden de classes en relaties toegelicht uit 2 datamodellen van CROW:
+
+1.	Het CROW Specificatieschema <a>CSPEC</a>: volgens dat schema worden de specificaties gestructureerd. Dit schema wordt door CROW gebruikt voor het publiceren van de Standaard RAW Bepalingen als de RAW Catalogus Bepalingen.
+2.	Het CROW Documentschema: <a>CDOC</a>: dit model beschrijft de publicatiestructuur voor de CROW Basisspecificaties en de resultaatsbeschrijvingen. De specificaties van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen volgen de structuur van hoofdstuk, deelhoofdstuk, paragraaf en artikel. De CROW specificaties van de RAW Catalogus Resultaatsbeschrijvingen opgebouwd volgens werkcategorie, subwerkcategorie en romptekst.
+
+<p class="note" title="Eisen aan data van derden">
+	<i>In relatie tot de eisen die we stellen aan data van derden kan CROW uiteraard ook besluiten bepaalde data-inhoud niet mee te nemen in de publicatie. Bijvoorbeeld omdat de markt er nog niet rijp voor is of omdat de keuzes stand heden nog te arbitrair zijn en niet robuust genoeg voor software(ontwikkeling).
+	</i>
+  </p>
+
+<p class="note" title="Eisen en specificaties">
+	<i>Als in deze ReSpec gesproken wordt over eisen en niet over specificaties, is dat om taalgebruik niet teveel geweld aan te doen. Het zou daardoor minder toegankelijk worden. Ter illustratie: we hebben het in Nederland meestal over verschillende soorten eisen. Dus niet ‘functiespecificatie’ bijvoorbeeld, maar ‘functie-eis’, etc..</i>
+  </p>
+
+## Classes
+
+Deze sectie geeft een overzicht van alle classes binnen de CROW-datamodellen
+<p class="ednote" title="This section will undergo changes soon">
+	Deze concepten en definities in deze secties zijn onderwerp van discussie
+  </p>
+
+### CSPEC Classes
+
+In <!--TODO-->sectie is een overzicht gegeven van de concepten (classes) die zijn gebruikt in het CROW datamodel. Concepten zijn allerlei ‘dingen’ die zijn gebruikt in de data modellen. De definities van die ‘dingen’ zijn eveneens opgenomen in de betreffende sectie. De concepten van <a>CSPEC</a> zijn hier in alfabetische volgorde weergegeven.
+
+#### `Activiteit`
+<dfn>Activiteit</dfn> is iets dat gebeurt
+
+Toelichting: <i>Activiteiten zijn vereenzelvigd met werkwoorden. Bij het structuren en aanbrengen van betekenisvolle relaties spelen naast zelfstandige naamwoorden (objecten), werkwoorden (activiteiten) een belangrijke rol. </i>
+
+#### `Begrip`
+<dfn>Begrip</dfn> geeft een bepaald ding aan
+
+Toelichting: <i>Definities binnen de context van een onderwerp voor objecten, activiteiten, hulpmiddelen of overig. Definities voor objecten en activiteiten zijn relevant voor de semantische relaties tussen eisen, objecten en activiteiten. Voorkeurstermen en synoniemen worden gebruikt. Als er een objectdefinitie is met een URI (Uniform Resource Identifier) die overeenkomt met een object in RAW wordt die URI gebruikt als voorkeursterm; een eventuele objectnamen met een gelijke betekenis als synoniem. Een voorbeeld daarvan is een rioleringsobject dat door Rioned al is gedefinieerd en gekoppeld aan een URI met een gelijke betekenis als in RAW.
+</i>
+
+#### `Collectie`
+<dfn>Collectie</dfn> is een verzameling van dingen die bij elkaar horen.
+
+#### `Dataset`
+<dfn>Dataset</dfn> is een collectie van bibliotheekdata die zijn gepubliceerd om contracten mee op te stellen.
+
+Toelichting: <i>CROW heeft het over bibliotheekdata en niet over projectspecifieke data(sets). De datasets kunnen een verschillende bron hebben: CROW, Provincie etc.. Bij data(set) die specifiek voor een project is gegenereerd, spreken we over een contract(data)set.</i>
+
+#### `Eenheid`
+<dfn>Eenheid</dfn> is de dimensie van de grootheid waarin een aspect wordt uitgedrukt.
+
+Toelichting: <i>Het concept ‘Eenheid’ komt voor in de RAW Catalogus Resultaatsbeschrijvingen. Die catalogus kan worden beschouwd als een productcatalogus met allerlei (deel)objecten c.q. bouwstoffen. Een deel van de objecten heeft een dimensie: een ‘Eenheid’.</i>
+
+#### `Fase`
+<dfn>Fase</dfn> is een periode als onderdeel van een langere ontwikkeling.
+
+Toelichting: <i>In de levenscyclus van een object worden een aantal fasen onderscheiden: initiatief, ontwerp, realisatie, gebruik en sloop.</i>
+
+#### `Functie`
+<dfn>Functie</dfn> is een potentieel meetbare prestatie van een object/systeem.
+
+Toelichting: <i>Een andere verwoording: functie is de beoogde werking en verrichting van een product of dienst. In de datamodellering is volstaan met functies op systeemniveau (of hoofdstukniveau). Zo is wel de functie beschreven van een rioolstelsel maar niet van allerlei in te kopen onderdelen van een rioolstelsel. Functie-eisen zijn eisen aan te realiseren functies; zij geven aan ‘wat het systeem moet kunnen doen’.</i>
+
+#### `Methode`
+<dfn>Methode</dfn> is een vaste weldoordachte manier van handelen om een bepaald doel te bereiken.
+
+Toelichting: <i>Het concept ‘Methode’ verificatie- of validatiemethoden aan een specificatie te kunnen koppelen.</i>
+
+#### `Object`
+<dfn>Object</dfn> is een door de mens geproduceerd of gerealiseerd voorwerp, constructie, bouwwerk.
+
+Toelichting: <i>Een object is een ‘ding’. Een afzonderlijk identificeerbaar onderdeel van een fysiek geheel. </i>
+<br>Het is <b>geen</b> object als het een van onderstaande ook kan zijn:
+* Een verzameling
+* Een samenstelling van twee objecten (deze is arbitrair)
+* Een proces of activiteit
+* Een Norm
+* Een woord eindigt op -ing. bebakening, voorziening, bewapening, inrichting. Dit zijn gevaarlijke woorden en ‘verboden’ als naam van een object. Het zijn groepen dingen.
+* Een object dat een bepaalde status meekrijgt, zoals bestaande ankerstang.
+
+#### `Raakvlak`
+<dfn>Raakvlak</dfn> is het punt, aspect of gebied dat twee objecten gemeen hebben.
+
+Toelichting: <i>Stand heden is er voor gekozen om ‘raakvlakken’ aan te maken voor RAW-bibliotheekdata. Zo kan worden volstaan met het koppelen van de eis aan dit raakvlak (in het voorbeeld van een raakvlakeis tussen twee objecten, kan zo worden volstaan met 1 koppeling i.p.v. een koppeling van de raakvlakeis aan twee objecten). Voorbeeld: Riolering en Verharding: eisen die worden gesteld aan het hoogteverschil tussen de bovenkant van putten en kolken t.o.v. de (geprojecteerde) verharding.</i>
+
+#### `Specificatie`
+<dfn>Specificatie</dfn> is een nadere aanduiding waaraan een product moet voldoen. 
+
+Toelichting: <i>Woordgebruik eis en specificatie wordt nogal eens door elkaar gebruikt in spreek- en schrijftaal. Ook in dit document dat dient als ‘toelichting op….’. Formeel is een specificatie hetzelfde als een eis, mits opgenomen in een contract. Als onderdeel van een (specificatie)bibliotheek dus niet. </i>
+
+#### `Specificatiecategorie` 
+<dfn>Specificatiecategorie </dfn> is een categorie waar een specificatie toe kan behoren.
+
+Toelichting: <i>Een specificatie is van een bepaalde type. De specificatiecategorieën die worden onderscheiden zijn: functie-eis, aspecteis, objecteis, raakvlakeis en proceseis. Het gebruik van specificatiecategorie wordt nader toegelicht in [deze sectie](#specificatiecategorie).
+	</i>
+
+#### `Status`
+<dfn>Status</dfn> is de stand of toestand van iets.
+
+Toelichting: <i>Status geeft de kwaliteitsaanduiding aan van een (deel)specificatie of document. Bijvoorbeeld status ‘concept, ‘vastgesteld’ of ‘vervallen’.</i>
+
+
+### CDOC Classes
+
+De concepten van <a>CDOC</a> zijn hier in een logische volgorde weergegeven.
+
+#### `Context`
+<dfn>Context</dfn> is het verband waarin iets zich voordoet.
+
+Toelichting: <i>Context heeft een brede betekenis. In het CROW-model wordt ‘Juridische context’ gebruikt om het juridische kader (<abbr title="Uniforme Administratieve Voorwaarden">UAV</abbr>/UAV-<abbr title="Uniforme Administratieve Voorwaarden geïntegreerde contracten">GC</abbr>) aan te geven, behorend bij een bepaalde specificatie. De geschiktheid/passendheid van een specificatie is afhankelijk van de samenwerkingsvorm (contractvorm).  </i>
+
+#### `Publicatie`
+<dfn>Publicatie</dfn> is een selectie uit de CROW data die voor een specifiek doel aan gebruikers aangeboden wordt, online of als hardcopy. Binnen een publicatie kunnen de aangeboden gegevens een structuur krijgen, bijvoorbeeld een hoofdstukindeling.
+
+Toelichting: <i>Voor de CROW Basisspecificaties 2018 geldt, dat de publicatie een selectie is van de data uit De Standaard RAW Bepalingen en de RAW Catalogus Bepalingen.</i>
+
+#### `Document`
+<dfn>Document</dfn> is (1) een verzameling gegevens die elk als één geheel wordt vastgelegd en/of gepresenteerd aan de gebruiker. Is (2) een verzameling gegevens van derden, waarnaar verwezen wordt als zijnde de bron van een publicatie
+
+Toelichting: <i>Het concept ‘Document’ wordt tweeledig gebruikt:
+1. Om in Publicaties meer dan één structuur te kunnen opnemen, zoals bijvoorbeeld een document met hoofdstukken en paragrafen; en een document dat bestaat uit gegevens. Zoals in de publicatie RAW 2015 drie documenten zitten: de Standaard RAW Bepalingen 2015, de RAW Catalogus Bepalingen 2015 (beide met hoofdstukindelingen) en de RAW Resultaatsbeschrijvingen (de gegevens waarmee het bestek kan worden gemaakt in daartoe bestemde software)
+2. Om de bron te vermelden van bijv. een specificatie of een object.
+	</i>
+
+#### `Hoofdstuk`
+<dfn>Hoofdstuk</dfn> is een deel van een boek of publicatie dat een afgerond geheel vormt.
+
+Toelichting: <i>De CROW Basisspecificaties 2018 op basis van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen zijn opgedeeld in Hoofdstukken, Deelhoofdstukken, Paragrafen en Artikelen. </i>
+
+#### `Deelhoofdstuk`
+<dfn>Deelhoofdstuk</dfn> is een opdeling van een hoofdstuk naar onderdelen.
+
+Toelichting: <i>De CROW Basisspecificaties 2018 op basis van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen zijn opgedeeld in Hoofdstukken, Deelhoofdstukken, Paragrafen en Artikelen.</i>
+
+#### `Paragraaf`
+<dfn>Paragraaf</dfn> is een deel van een tekst dat kleiner is dan een (deel)hoofdstuk en groter dan een artikel.
+
+Toelichting: <i>De CROW Basisspecificaties 2018 op basis van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen zijn opgedeeld in Hoofdstukken, Deelhoofdstukken, Paragrafen en Artikelen.</i>
+
+#### `Artikel`
+<dfn>Artikel</dfn> is een opdeling van een paragraaf naar onderdelen, met tekst waarin een specificatie is opgenomen.
+
+Toelichting: <i>De CROW Basisspecificaties 2018 op basis van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen zijn opgedeeld in Hoofdstukken, Deelhoofdstukken, Paragrafen, Artikelen (en leden).</i>
+
+## Relaties
+
+Bij het koppelen van specificaties aan concepten wordt gebruikt gemaakt van relaties. In het CROW-model is gedefinieerd welke relaties mogelijk zijn.
+
+Het gebruik van betekenisvolle relaties is uiteraard afhankelijk van de behoefte aan semantiek in de database. Semantiek en complexiteit zal ongetwijfeld worden toegevoegd in de toekomst.
+
+1.	Functie-eisen worden gekoppeld aan een functie;
+2.	Objecteisen en aspecteisen worden gekoppeld aan een object;
+3.	Raakvlakeisen worden gekoppeld aan een raakvlak;
+4.	Proceseisen worden gekoppeld aan een activiteit;
+5.	En eisen die een verificatiemethode hanteren, worden gekoppeld aan die verificatiemethode. 
+
+Naast de koppelingen van eisen, zijn er nog koppelingen voor de objectenboom en raakvlakken. Objecten bestaan bijvoorbeeld uit deelobjecten of hebben verschillende varianten. Zo is zichtbaar in een objectenboom of er sprake is van soorten of van samenstellingen. 
+
+Hieronder staan de mogelijke relaties die gelegd kunnen worden tussen eisen, objecten, functies, activiteiten, raakvlakken en verificatiemethoden. Met een enkel voorbeeld beperkt tot de relaties die misschien wat toelichting vergen.
+
+### CSPEC Relaties 
+
+#### `specificeert`
+Iedere eis (specificatie) is gekoppeld aan één of meerdere relevante hoofdconcepten middels de relatie `specificeert`:
+* Activiteit
+* Functie
+* Object
+* Raakvlak (raar, is bron van specificatie, niet subject)
+Indien er een verificatiemethode is voor een specificatie, is die specificatie gekoppeld aan die verificatiemethode middels de relatie `heeft verificatiemethode`: 
+* Verificatiemethode (dit zorgt er voor dat een specificatie niet aan meerdere objecten gekoppeld kan zijn als niet altijd deze verificatiemethode geldt), 
+Er kan uiteraard sprake zijn van meer dan één toegestane verificatiemethode.
+
+##### `specificeert` bij Activiteit
+Indien een specificatie betrekking heeft op een bepaalde activiteit dan is deze gekoppeld. Hiervoor wordt de relatie `specificeert` gebruikt. De activiteiten zijn werkwoorden; niet de combinatie van werkwoord – zelfstandig naamwoord.
+Ook bij gebruikte werkwoorden in RAW is soms ook onduidelijk of een werkwoord nu eenzelfde of een andere betekenis heeft. Als die onduidelijkheid bestaat in ‘te ontrafelen’ inhoud, blijft die onduidelijkheid uiteraard bestaan. Zo kunnen er twee verschillende werkwoorden voorkomen die misschien wel hetzelfde betekenen voor dezelfde onderwerpen of voor verschillende onderwerpen, maar dat is niet altijd helder. Dan blijven die twee werkwoorden (stand heden) naast elkaar bestaan. De semantische discussies die mogelijk zijn over objecten speelt dus ook bij werkwoorden. Iets dat minder belangrijk is voor een contract op een wat hoger aggregatieniveau dan RAW. In RAW gaat het ondanks het streven, nog vaak over het ‘hoe’ en niet het ‘wat’. Betekent meer belang van werkwoorden in het contract.
+
+Een werkwoord als baggeren of maaien heeft nog weinig betekenis. Baggeren van een vaargeul, of maaien van een talud zegt veel meer. Door deze activiteit te koppelen aan de vaargeul, worden er zinnige eisen gesteld. Het maaien van een talud kent andere eisen dan het maaien van een grasveld. Misschien zijn de eisen (specificaties) nog wel gelijk (grashoogte bijvoorbeeld) maar de omstandigheden waaronder de werkzaamheden moeten worden uitgevoerd zijn totaal verschillend bepalen in een groot aantal gevallen de kosten. 
+
+In model 1 is in 2016 gebruik gemaakt van de relaties `specificeert activiteit bij object` en `specificeert object bij activiteit`. Denk hierbij aan allerlei eisen die worden gesteld aan objecten afhankelijk van activiteiten als aanbrengen, verwijderen, inspecteren, renoveren etc. Of aan allerlei eisen die worden gesteld aan activiteiten die afhankelijk zijn van object. Naast de koppeling van de eis aan het betreffende object of de betreffende activiteit, geeft deze relatie extra informatie. 
+<p class="note" title="Groeimodel activiteiten en objecten">
+	<i>Deze wijze van modellering blijft in het groeimodel straks waarschijnlijk niet gehandhaafd. Waarschijnlijk gaat CROW over op het structureren van combinaties van activiteiten en objecten.
+	</i>
+  </p>
+
+<aside class="example" title="specificeert activiteit bij object">
+	<p><i>De afwijking in hoogteligging van elementenverharding ten opzichte van het voorgeschreven dwarsprofiel is ten hoogste 10 mm.</i>
+	<br>Eis specificeert activiteit met ‘elementenverharding’ en eis wordt gesteld aan (specificeert) ‘aanbrengen’.</p>
+</aside>
+
+<aside class="example" title="specificeert activiteit bij object">
+	<p><i>Als voegen worden gemaakt door middel van het verkleinen van de doorsnede, de zaagsnede of de scheurinleider op een zodanig tijdstip in de betonverharding aanbrengen dat geen scheurvorming optreedt op plaatsen waar geen voegen zijn voorzien en dat overigens ook geen schade aan het betonoppervlak ontstaat.</i>
+	<br>Eis specificeert activiteit met ‘voeg’ en eis specificeert (wordt gesteld aan) ‘aanbrengen’.</p>
+</aside>
+
+<aside class="example" title="specificeert activiteit bij object">
+	<p><i>De hoogteligging van een rioolput van een vrijvervalriool wijkt ten hoogste 20 mm af van de voorgeschreven hoogteligging. Deze eis geldt bij het (nieuw) aanbrengen van een rioolput.</i>
+	<br>De eis wordt gesteld aan het ‘object’ bij het ‘aanbrengen’</p>
+</aside>
+
+<aside class="example" title="specificeert activiteit bij object">
+	<p><i>Het afschot van een leiding voor een perceelaansluiting ligt tussen 1 : 50 en 1 : 200.</i>
+	<br>De eis specificeert het object ‘rioolleiding’. En de eis specificeert ‘rioolleiding’ bij ‘aanbrengen’.</p>
+</aside>
+
+<aside class="example" title="specificeert object bij activiteit">
+	<p><i>Het gehalte aan zeer fijn materiaal  63 m van brekerzand is volgens de categorie f3.</i>
+	<br>Eis specificeert ‘brekerzand’ en eis specificeert ‘object brekerzand’ bij ‘realiseren elementenverharding’.</p>
+</aside>
+
+<aside class="example" title="specificeert object bij activiteit">
+	<p><i>Het dwarsprofiel van bestrating is gewijzigd tonrond.</i>
+	<br>Eis specificeert ‘elementenverharding’ en 	eis specificeert ‘elementenverharding’  bij ‘aanbrengen’.</p>
+</aside>
+
+##### `specificeert` bij Raakvlak
+Raakvlakeisen zijn eisen die zijn gesteld aan de interactie van het beschouwde systeem met de omgeving, of eisen die worden gesteld aan de interactie tussen objecten binnen het beschouwde systeem (respectievelijk een externe raakvlakeis of een interne raakvlakeis). 
+Stand heden is er voor gekozen om ‘raakvlakken’ aan te maken voor RAW-bibliotheekdata. Zo kan worden volstaan met het koppelen van de eis aan dit raakvlak (in het voorbeeld van een raakvlakeis tussen twee objecten, kan zo worden volstaan met 1 koppeling i.p.v. een koppeling van de raakvlakeis aan twee objecten).
+
+Naar verwachting is het aantal raakvlakken in RAW beperkt: met accent op raakvlakken tussen objecten. Het betreft generieke (uitvoerings)kennis en geen projectspecifieke kennis (met een projectspecifieke omgeving etc.). 
+<aside class="example" title="specificeert raakvlak">
+	<p>Riolering: eisen aan het overstorten van het riool(systeem) op het oppervlaktewater(systeem)
+		<br>Riolering en verharding: eisen die worden gesteld aan het hoogteverschil tussen de bovenkant van putten en kolken t.o.v. de (geprojecteerde) verharding.</p>
+</aside>
+
+#### `sluit combinatie uit met`
+Indien een specificatie niet gebruikt mag worden in combinatie met een andere specificatie dienen deze specificaties gekoppeld te worden middels de relatie `Sluit combinatie uit met` gebruikt te worden. Deze relatie is bi-directioneel.
+
+#### `vereist combinatie met`
+Indien een specificatie een combinatie met een andere specificatie vergt dan dient de relatie `vereist combinatie met` gelegd te worden. 
+
+#### `heeft betrekking op`
+De volgende fasen worden in de levenscyclus van een object onderscheiden:
+* Initiatief
+* Ontwerp
+* Realisatie 
+* Gebruik (Gebruiksfase is tevens fase Beheer; onderhoud is onderdeel van Beheer)
+* Sloop
+
+Beheer en onderhoud maakt deel uit van de fase Gebruik en is geen andere fase in de levenscyclus.
+Overigens wordt op veel vakgebieden onderhoud als een onderdeel c.q. als een aspect van Beheer gezien. Beheer heeft dus een bredere, overkoepelende betekenis en staat dus op een hoger aggregatieniveau. Geadviseerd wordt dit als standaard te adopteren.
+
+De data die CROW beschikbaar stelt betreft generieke data c.q. bibliotheekdata. Het is geen projectspecifieke data. Daardoor is niet altijd expliciet aan te geven in welke fase eisen gelden of kunnen gelden. Bepaalde eisen kunnen immers behoren tot de projectfase realisatie, maar ook tot fase beheer. Deels dus arbitrair. Zaak het in ieder geval consistent te doen. Bibliotheekpecificaties die voor meerdere projectfasen gebruikt kunnen worden moeten dus ‘gelabeld’ worden aan meerdere projectfasen. Denk daarbij met name aan specificaties die betrekking hebben op verificatie: verificaties die niet alleen gebruikt worden bij het realiseren van objecten, maar ook bij het beheer (monitoren) van objecten. Meestal is dat wel duidelijk voor auteurs en reviewers.
+
+Eerder is al in deze ReSpec beschreven welk datamodel is gehanteerd en welke inhoud is opgenomen in dat datamodel. Dat wil niet zeggen dat CROW ook alle inhoud beschikbaar stelt c.q. publiceert. Dat is afhankelijk van besluitvorming intern CROW. En – zo is ook aangegeven - in deze ReSpec is niét beschreven welke eisen CROW stelt aan de modelinhoud van derden. Dat geldt dus ook de class ‘Fase’
+
+#### `vervult`
+Ieder onderwerp/hoofdstuk/hoofdobject RAW kent minstens 1 functie. Het object is de functievervuller (en wordt gekoppeld door ‘functie – wordt vervuld door – object’). Er is niet altijd is sprake van een object; denk aan een onderwerp als ‘Baggerwerken’ of ‘Grondwerken’.
+Van deelobjecten die je kant en klaar bij de leverancier bestelt worden door CROW geen functies beschreven. Denk bijvoorbeeld aan allerlei deelobjecten waaruit een rioolstelsel wordt opgebouwd.
+
+#### `bestaat uit` & `is variant van`
+Objecten filteren uit de inhoud en structureren in een zorgvuldig opgezette objectenboom die deels uit een samenstelling bestaat (deelobjecten van bovenliggend object) en deels uit varianten (een variant van een (deel)object). Middels de relaties `bestaat uit` of `is variant van`.
+
+Hierbij is het belangrijk dat de definities van de deelobjecten helder zijn. Of … op basis van de definities die zijn opgenomen in de inhoud en/of …. op basis van de context. Soms worden verschillende termen gebruikt voor hetzelfde ding; soms wordt eenzelfde term gebruikt voor verschillende dingen helaas. Terminologie in de inhoud van RAW is in de Standaard RAW Bepalingen en de bijbehorende catalogi Bepalingen en Resultaatsbeschrijvingen niet overal consistent, maar is de betekenis in haar context wel helder. Bij het opslaan van data in systemen die worden begrepen door software is consistentie in terminologie uiteraard wel cruciaal. 
+
+#### `heeft verificatiemethode`
+Bij het project ‘Ontvlechten’ zijn de specifieke verificatiemethoden die binnen de RAW worden gehanteerd gekoppeld aan de betreffende eis. Er is binnen het lopende project géén onderscheid gemaakt in type verificatie. 
+
+#### `heeft validatiemethode`
+In de modellering is nog geen gebruik gemaakt van het concept ‘Validatie’. De RAW-contractdata zijn immers eisen op een merendeels laag aggregatieniveau. Validatie is aantonen dat het systeem geschikt is voor de toepassing. Verifiëren is aantonen dat het systeem juist is ontworpen en gebouwd. 
+
+### CDOC Relaties 
+
+#### `heeft juridische context`
+
+Een specificatie wordt toepasbaar verklaard voor de volgende contractvormen:
+* UAV en/of
+* UAV-GC
+
+Hiervoor moet de relatie `is vast binnen context` of `is facultatief binnen context` worden gebruikt.
+In de ontwikkelomgeving is tevens gebruik gemaakt van de relatie `is niet van toepassing binnen context`. Dit is gedaan om het werk van de auteur en reviewers explicieter te maken, waardoor het afbreukrisico in onjuiste relaties afneemt.
+
+#### `is vast binnen context` & `is facultatief binnen context`
+Bij specificaties moet aangegeven worden of de betreffende specificatie <i>“Vast”</i> of <i>“Facultatief”</i> is. Het is immers bibliotheekdata. Zo zijn alle specificaties uit de Standaard RAW Bepalingen voor UAV vaste specificaties. Alle specificaties in de RAW Catalogus Bepalingen en de RAW Catalogus Resultaatsbeschrijvingen zijn facultatieve specificaties. Wat de markt van de specificaties in RAW als vast of facultatief beschouwt voor UAV-GC moet zich nog uitkristalliseren. In de startdataset is door CROW een voorzet gegeven. Een deel daarvan is geen discussie en vormt nu ook het hart van de contractdata in de Standaard RAW Bepalingen. Denk aan specificaties op een wat hoger niveau zoals stroefheid of vlakheid van een verharding. Een flink deel is echter arbitrair en opdrachtgeverafhankelijk. Nogal wat UAV-GC contracten worden niet functioneel gespecificeerd of zelfs niet (geheel) objectgericht gespecificeerd. Waar stand heden de scheidslijn ongeveer ligt moet voortschrijdend worden bepaald met de markt. Voortschrijdend, omdat een vraagspecificatie in de toekomst naar verwachting op een steeds hoger niveau komt te liggen.
+
+Aangegeven dient te worden of een specificatie toepasbaar is binnen de juridische context van UAV en/of UAV-GC. In de toekomst kunnen meerdere contexten onderscheiden worden. Voor nu volstaat deze kwalificatie. De volgende opties zijn mogelijk:
+* <b>(juridische) context UAV</b>: vast / facultatief / niet van toepassing
+* <b>(juridische) context UAV-GC</b>: vast / facultatief / niet van toepassing
+
+De contractdataset UAV-GC wordt gevoed door een deel van de contractdata UAV. Op termijn zal die dataset groeien met contractdata voor UAV-GC. Contractdata op een hoger aggregatieniveau passend bij de samenwerkingsvorm UAV-GC. Stand heden ontbreekt die contractdata in de CROW-bibliotheekdata.
+ 
+## Specificatiecategorie
+
+Met behulp van de relatie `is van categorie` is voor elke specificatie aangegeven onder welke specificatiecategorie deze valt.
+In lijn met de methodiek ‘functioneel specificeren’ en ‘Systems Engineering’ wordt hierbij onderscheid gemaakt in de volgende specificatiecategorieën: 
+* Functie-eis
+* Aspecteis
+* Objecteis (of gekozen eigenschap: een objecteis zijnde geen aspecteis)
+* Raakvlakeis
+* Proceseis
+
+De contractdata betreft bibliotheekdata met content RAW. Dat is veel standaard uitvoeringskennis met selectiemogelijkheden in productcatalogi (resultaatsbeschrijvingen) met activiteiten en objecten Specifieke object gerelateerde kwaliteiten, zoals de maatvoering en materialisering noemen we objecteigenschappen.
+<i>Zie publicatie 289 [Handboek specificeren](https://www.crow.nl/publicaties/handboek-specificeren) en [CROW-Model Vraagspecificatie van maart 2016](https://www.crow.nl/blog/mei-2016/nieuw-model-vraagspecificatie-best-for-project-g).</i>
+
+### Aspecteis subcategorieën 
+
+In deze paragraaf wordt ingegaan op verschillende typen aspecteisen die kunnen worden onderscheiden en wat CROW daar nu mee heeft gedaan. 
+Een aspecteis kan aan meer dan één aspect zwak of sterk bijdragen. Gebleken is dat auteurs en reviewers CROW heeft als afspraak gehanteerd: maximaal één aspecteistype te selecteren, tenzij onvoldoende consensus. Dus in geval consensus over het maatgevende aspect is dat aangegeven. Bij teveel onduidelijkheid of verschil is geen subcategorie aangegeven.
+De meerwaarde van één subcategorie aspecteis (bij voldoende consensus) wordt stand heden hoger ingeschat dan een lijstje met veel arbitraire subcategorieën. Realiserend dat dit betekent dat de vindbaarheid zich beperkt tot aspecteisen waar een subcategorie is aangegeven én zich beperkt tot die subcategorie. Allerlei eisen met mogelijke aanvullende (meerdere) subcategorieën met meer of minder zwakke relaties worden dus niet gevonden.
+Te hanteren lijst subcategorieën voor Aspecteis:
+* Betrouwbaarheid
+* Beschikbaarheid
+* Onderhoudbaarheid
+* Veiligheid
+* Gezondheid
+* Milieu
+* Beveiliging	
+* Beeldkwaliteit
+
+<i>Uitgangspunten:</i>
+
+De content van RAW kent groot scala aan eisen op laag aggregatieniveau in de eisenpiramide. Tevens een breed scala aan technische eisen en (keuzes in) eigenschappen van deelobjecten. 
+Waar sprake is van een aspecteis geldt ‘zo concreet mogelijk, zo abstract als nodig’. Dit betekent volstaan met label ‘aspecteis’ als geen nadere concretisering mogelijk is c.q. er teveel verschil in inzicht en keuze blijkt te zijn in subtype door betrokken auteurs en reviewers.
+Indien naar oordeel van de auteur een eis duidelijk een bepaald aspect dient, dan wordt dat aspect aangevinkt. Er kan dus maar één aspecttype worden aangevinkt. De verwachting is dat zodra er aan meerdere aspecten wordt bijgedragen naar oordeel auteur, de resultaten van verschillende auteurs teveel van elkaar zullen afwijken.
+
+Zie [CROW-Model Vraagspecificatie van maart 2016](https://www.crow.nl/blog/mei-2016/nieuw-model-vraagspecificatie-best-for-project-g)
+<p class="note" title="Beeldkwaliteit i.p.v. Vormgeving">
+	<i>In afwijking van de Model Vraagspecificatie is ‘Beeldkwaliteit’ gehanteerd i.p.v. ‘Vormgeving’. Beeldkwaliteit omvat zowel vorm als materialisering. Beeldkwaliteit is tevens een veelvoorkomend begrip in contractdata voor beheer. En…. voorkomt onnodige selectieproblemen bij twijfel tussen ‘vorm’ en ‘materialisering’. Tevens zijn niet alle RAMSHEEP-aspecten gebruikt omdat het geen projectspecifieke data is maar bibliotheekdata. Politiek bijvoorbeeld is in bibliotheekdata geen issue.
+	</i>
+  </p>
+
+
+### Proceseis subcategorieën
+
+In de markt is er nog steeds onduidelijkheid in terminologie en afbakening van ‘Proceseis’. Niet iedereen verstaat hetzelfde onder een proceseis. Dit betekent ook dat dit type eisen op hele verschillende plaatsen in het contract voorkomen. Dat levert extra werk en afbreukrisico op in het proces van opstellen en aanbesteden van contracten. 
+In het CROW-model hebben we iedere eis getypeerd; dus ook eisen van de categorie ‘proces’. 
+
+<i>Toelichting</i>:
+
+Proceseisen wordt door partijen verschillend gedefinieerd. Zie SE-wijzer BAM; zie CROW-P289; zie Provincie, Rijk etc.. Naast “eisen aan activiteiten die nodig zijn om het systeem tot stand te brengen”, zijn er ook partijen die allerlei ‘dataverkeer’ (documentenverkeer) ook als proceseis zien.  De scheiding in administratieve eisen en proceseisen blijkt best lastig. Proceseisen zijn eisen gesteld aan de wijze waarop het werk tot stand gebracht moet worden. En niet zoals functie-, aspect- en objecteisen aan het te realiseren systeem.
+
+Wat betreft duidelijkheid in het onderscheid tussen een ‘proceseis’ en overige eistypen is de rapportage van de [CROW-Model Vraagspecificatie van maart 2016](https://www.crow.nl/blog/mei-2016/nieuw-model-vraagspecificatie-best-for-project-g) het meest transparant tot heden. Niét door de vijf functierollen van IPM; en niét door het gebruik van de vier onderscheiden processen: technisch management, projectmanagement, projectbeheersing en omgevingsmanagement. Maar wél door de (soms arbitraire) keuzes die gemaakt zijn in de daarbij horende werkpakketten. Houvast daarbij is de plaats van een werkpakket in die structuur (de structurering volgens de Model Vraagspecificatie van maart 2016). Het overzicht van de vier processen en de bijbehorende werkpakketten is hieronder opgenomen.
+
+| 1. Technisch Management     	| 2. Projectmanagement                          	| 3. Projectbeheersing       	| 4. Omgevingsmanagement           	|
+|-----------------------------	|-----------------------------------------------	|----------------------------	|----------------------------------	|
+| TM - Ontwerpen              	| PM - Interactie opdrachtgever - opdrachtnemer 	| PB - Scopemanagement       	| OM - Communicatie                	|
+| TM - Uitvoeren              	| PM - V&G management                           	| PB - Kwaliteitsmanagement  	| OM - Verkeersmanagement          	|
+| TM - Onderhouden            	| PM – Inkoopmanagement                         	| PB - Planningsmanagement   	| OM - Vergunningen                	|
+| TM - Verifiëren & Valideren 	|                                               	| PB - Financieel management 	| OM - Kabels en leidingen         	|
+| TM – Opleveren              	|                                               	| PB - Risicomanagement      	| OM - Archeologie                 	|
+|                             	|                                               	| PB - Documentmanagement    	| OM - Flora en fauna              	|
+|                             	|                                               	| PB – Informatiemanagement  	| OM - Niet gesprongen explosieven 	|
+
+</section>
+
+<section class="appendix">
+
+# CSPEC model overview
+
+## CSPEC Classes
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Activiteit`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Activiteit`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#activiteit">Iets dat gebeurt</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Activiteit</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Collectie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Collectie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#collectie">Een verzameling van dingen die bij elkaar horen.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Collectie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Dataset`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Dataset`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#dataset">Een Collectie van bibliotheekdata die zijn gepubliceerd om contracten mee op te stellen.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Dataset</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Eenheid`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Eenheid`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#eenheid">De dimensie van de grootheid waarin een aspect wordt uitgedrukt.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Eenheid</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Fase`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Fase`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#fase">Een periode als onderdeel van een langere ontwikkeling.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Fase</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Functie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Functie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#functie">Een potentieel meetbare prestatie van een object / systeem.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Functie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Methode`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Methode`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#methode">Een vaste wel doordachte manier van handelen om een bepaald doel te bereiken.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Methode</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Object`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Object`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#object">Een door de mens geproduceerd of gerealiseerd voorwerp, constructie, bouwwerk.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Object</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Raakvlak`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Raakvlak`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#raakvlak">Het punt, aspect of gebied dat twee objecten gemeen hebben.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Raakvlak</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Specificatie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Specificatie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#specificatie">Een nadere aanduiding waaraan een product moet voldoen.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Specificatie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Specificatiecategorie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Specificatiecategorie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#specificatiecategorie">Een categorie waar een specificatie toe kan behoren.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Specificatiecategorie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:Status`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:Status`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#status">De stand of toestand van iets.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Status</td>
+	  </tr>
+	</tbody>
+	</table>
+
+## CSPEC Relaties
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:bestaatUit`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:bestaatUit`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#bestaat-uit-is-variant-van">bestaat uit & is variant van</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">bestaat uit</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is onderdeel van</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:bevat`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:bevat`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">bevat</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is bevat in</td>
+	  </tr>
+	</tbody>
+	</table>
+
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftBetrekkingOpFase`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftBetrekkingOpFase`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#heeft-betrekking-op">heeft betrekking op</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft betrekking op fase</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">fase heeft betrekking op</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftBron`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftBron`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft bron</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is bron voor</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftEenheid`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftEenheid`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft eenheid</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is eenheid voor</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftLid`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftLid`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft lid</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is lid van</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftOnderliggende`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftOnderliggende`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft onderliggende</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is onderliggende van</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftStatus`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftStatus`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft status</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is status van</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftSubcategorie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftSubcategorie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft subcategorie</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is subcategorie van</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftVariant`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftVariant`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#bestaat-uit-is-variant-van">heeft variant</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft variant</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is variant van</td>
+	  </tr>
+	</tbody>
+	</table>
+	
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:heeftVerificatiemethode`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:heeftVerificatiemethode`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#heeft-verificatiemethode">heeft verificatiemethode</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">heeft verificatiemethode</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is Verificatiemethode voor</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:hoortBijDataset`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:hoortBijDataset`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">hoort bij dataset</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is dataset voor</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:isVanCategorie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:isVanCategorie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">is van categorie</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is categorie voor</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:sluitCombinatieUitMet`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:sluitCombinatieUitMet`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#sluit-combinatie-uit-met">sluit combinatie uit met</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">sluit combinatie uit met</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">combinatie wordt uitgesloten door</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:specificeert`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:specificeert`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#specificeert">specificeert</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">specificeert</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is gespecificeerd door</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:specificeertActiviteitBijObject`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:specificeertActiviteitBijObject`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#specificeert-bij-activiteit">specificeert bij Activiteit</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">specificeert activiteit bij object</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">bij object wordt activiteit gespecificeerd door</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:specificeertObjectBijActiviteit`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:specificeertObjectBijActiviteit`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#specificeert-bij-activiteit">specificeert bij Activiteit</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">specificeert object bij activiteit</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">bij object wordt activiteit gespecificeerd door</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:vervult`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:vervult`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#vervult">vervult</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">vervult</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">wordt vervuld door</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cspec:wordtInCombinatieVereistDoor`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cspec:wordtInCombinatieVereistDoor`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#vereist-combinatie-met">vereist combinatie met</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">wordt in combinatie vereist door</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">combinatie wordt vereist door</td>
+	  </tr>
+	</tbody>
+	</table>
+
+</section>
+
+<section class="appendix">
+
+# CDOC model overview
+
+## CDOC Classes
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Artikel`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Artikel`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#artikel">Opdeling van een paragraaf naar onderdelen, met tekst waarin leden zijn opgenomen.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Artikel</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Begrip`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Begrip`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#begrip">Gebruikt woord met nadere toelichting.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Begrip</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Context`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Context`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#context">Het verband waarin iets zich voordoet.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Context</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Deelhoofdstuk`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Deelhoofdstuk`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#deelhoofdstuk">Opdeling van een hoofdstuk naar onderdelen.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Deelhoofdstuk</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Document`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Document`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#document">Een document is een verzameling gegevens die als één geheel wordt vastgelegd en-of gepresenteerd aan de gebruiker.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Document</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Hoofdstuk`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Hoofdstuk`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#hoofdstuk">Deel van een boek of publicatie dat een afgerond geheel vormt.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Hoofdstuk</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Lid`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Lid`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky">Tekst waarin de specificatie staat uitgeschreven.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Lid</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Paragraaf`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Paragraaf`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#paragraaf">Deel van een tekst dat kleiner is dan een (deel)hoofdstuk en groter dan een artikel.</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Paragraaf</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Publicatie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Publicatie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky"><a href="#publicatie">Een publicatie is een document dat vermenigvuldigd wordt of online beschikbaar is gesteld met het doel deze onder de publieke aandacht te brengen.
+			</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Publicatie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Romptekst`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Romptekst`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky">Tekst waarin een specificatie is opgenomen voor de resultaatsbeschrijvingen analoog aan Artikel.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Romptekst</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Subwerkcategorie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Subwerkcategorie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky">Deel van een Werkcategorie analoog aan Paragraaf.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Subwerkcategorie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:Werkcategorie`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:Werkcategorie`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Definitie:</td>
+		<td class="tg-0pky">Deel van de resultaatsbeschrijvingen dat een afgerond geheel vormt analoog aan Hoofdstuk.</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">Werkcategorie</td>
+	  </tr>
+	</tbody>
+	</table>
+
+## CDOC Relaties
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:isFacultatiefBinnenJuridischeContext`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:isFacultatiefBinnenJuridischeContext`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#is-vast-binnen-context-is-facultatief-binnen-context">is vast binnen context & is facultatief binnen context</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">is facultatief binnen juridische context</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is juridische context voor facultatieve</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:isVastBinnenJuridischeContext`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:isVastBinnenJuridischeContext`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Toelichting:</td>
+		<td class="tg-0pky"><a href="#is-vast-binnen-context-is-facultatief-binnen-context">is vast binnen context & is facultatief binnen context</a></td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">is vast binnen juridische context</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">is juridische context voor vaste</td>
+	  </tr>
+	</tbody>
+	</table>
+
+<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-m5kd" colspan="2">`cdoc:noemt`</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-f8tv">URI:</td>
+		<td class="tg-0pky">`cdoc:noemt`</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Label:</td>
+		<td class="tg-0pky">noemt</td>
+	  </tr>
+	  <tr>
+		<td class="tg-f8tv">Inverse:</td>
+		<td class="tg-0pky">wordt genoemd in</td>
+	  </tr>
+	</tbody>
+	</table>
+
+</section>
+
+<section class="appendix">
+
+# Schema's CROW-datamodellen 
+
+CROW beheert specificaties in o.a. de Standaard RAW Bepalingen, de RAW Catalogus Bepalingen (met facultatieve aanvullingen en wijzigingen op ‘de Standaard’), en de RAW Catalogus Resultaatsbeschrijvingen. De specificaties worden opgeslagen en gepubliceerd in het LDP volgens een model of schema. Die schema’s zijn hieronder weergegeven en bestaan uit drie delen.
+Voor het specificatieschema van de Resultaatsbeschrijvingen vindt nog een doorontwikkeling plaats. Dat schema wordt niét gebruikt voor publicatie stand heden. Het schema is hier in concept opgenomen voor een beter begrip van het totaalbeeld. Een beeld dat aansluit bij de inhoud van RAW, waarin de Resultaatsbeschrijvingen voor sommigen belangrijker en/of bekender zijn dan de RAW Catalogus Bepalingen (of de inhoud van de Standaard RAW Bepalingen).
+
+1. Het CROW Specificatieschema CSPEC: volgens dat schema worden de eigenlijke specificaties in triples vastgelegd. Voor zowel de Standaard RAW Bepalingen als de RAW Catalogus Bepalingen.
+2. Het nog aan te passen concept CROW specificatieschema voor de RAW Catalogus Resultaatsbeschrijvingen: CRES: bevat de uitbreiding van specificaties voor de RAW specifieke concepten. Denk aan deelspecificatie, bouwstof en eenheid.
+3.Het Documentschema: CDOC: volgens dat schema wordt de verbinding gelegd met de documenten en publicaties van de specificaties. Zo zijn de CROW specificaties van de RAW Catalogus Resultaatsbeschrijvingen opgebouwd volgens werkcategorie, subwerkcategorie en romptekst. De specificaties van de Standaard RAW Bepalingen en de RAW Catalogus Bepalingen volgens hoofdstuk, deelhoofdstuk, paragraaf en artikel.
+
+## Schema diagram CSPEC
+
+<img src="Schema Specificaties.v3.2.3 CSPEC_VERVALLEN.png" alt="Specificatieschema voor Standaard RAW Bepalingen + RAW Catalogus Bepalingen [CSPEC]" style="width:100%;height:100%;" />
+
+## Schema diagram CDOC
+
+<img src="Schema Specificaties.v3.2.3 CDOC_VERVALLEN.png" alt="Publicatieschema voor Basisspecificaties en Resultaatsbeschrijvingen [CDOC]" style="width:100%;height:100%;" />
+
+</section>

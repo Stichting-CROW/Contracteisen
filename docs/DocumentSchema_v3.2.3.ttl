@@ -1,0 +1,467 @@
+# baseURI: http://ontologie.crow.nl/document/201711/
+# prefix: cdoc
+
+@prefix cdoc: <http://ontologie.crow.nl/document/201711/> .
+@prefix cspec: <http://ontologie.crow.nl/bibliotheekspecificatie/201711/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cdoc:
+  rdf:type owl:Ontology ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "Bart Bink van CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-02-04"^^xsd:date ;
+  rdfs:comment "Dit schema bevat de concepten en relaties die zijn bepaald op basis van de indeling van de RAW catalogus en de resultaatsbeschrijvingen."@nl ;
+  rdfs:label "Documentschema"@nl ;
+  owl:versionInfo "Version 3.2.2" ;
+.
+cdoc:Artikel
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Artikel"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Begrip ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Lid ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  skos:definition "Opdeling van een paragraaf naar onderdelen, met tekst waarin leden zijn opgenomen."@nl ;
+.
+cdoc:Begrip
+  rdf:type owl:Class ;
+  dcterms:created "2017-09-04"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-09-04"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Begrip"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Artikel ;
+      owl:onProperty cdoc:isBevatIn ;
+    ] ;
+  skos:definition "Gebruikt woord met nadere toelichting."@nl ;
+.
+cdoc:Context
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Context"@en ;
+  rdfs:label "Context"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  skos:definition "Het verband waarin iets zich voordoet."@nl ;
+.
+cdoc:Deelhoofdstuk
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-05-28"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Deelhoofdstuk"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Paragraaf ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  skos:definition "Opdeling van een hoofdstuk naar onderdelen."@nl ;
+.
+cdoc:Document
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Document"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Hoofdstuk ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  skos:definition "Een document is een verzameling gegevens die als één geheel wordt vastgelegd en-of gepresenteerd aan de gebruiker."@nl ;
+.
+cdoc:Hoofdstuk
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Hoofdstuk"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Deelhoofdstuk ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  skos:definition "Deel van een boek of publicatie dat een afgerond geheel vormt."@nl ;
+.
+cdoc:ID
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Paragraaf
+          cdoc:Artikel
+          cdoc:Lid
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "ID"@nl ;
+.
+cdoc:Lid
+  rdf:type owl:Class ;
+  dcterms:created "2017-09-04"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-09-04"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Lid"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  skos:definition "Tekst waarin de specificatie staat uitgeschreven."@nl ;
+.
+cdoc:Paragraaf
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Paragraaf"@nl ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom cdoc:Artikel ;
+      owl:onProperty cdoc:bevat ;
+    ] ;
+  skos:definition "Deel van een tekst dat kleiner is dan een (deel)hoofdstuk en groter dan een artikel."@nl ;
+.
+cdoc:Publicatie
+  rdf:type owl:Class ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "Publicatie"@nl ;
+  rdfs:subClassOf cdoc:Document ;
+  skos:definition "Een publicatie is een document dat vermenigvuldigd wordt of online beschikbaar is gesteld met het doel deze onder de publieke aandacht te brengen."@nl ;
+.
+cdoc:beschrijving
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "beschrijving"@nl ;
+  rdfs:subPropertyOf skos:definition ;
+.
+cdoc:bevat
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Document
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Paragraaf
+          cdoc:Artikel
+          cdoc:Lid
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "bevat"@nl ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Paragraaf
+          cdoc:Artikel
+          cdoc:Lid
+          <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie>
+        ) ;
+    ] ;
+  owl:inverseOf cdoc:isBevatIn ;
+.
+cdoc:code
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Paragraaf
+          cdoc:Artikel
+          cdoc:Lid
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "code"@nl ;
+.
+cdoc:deficodeInhoud
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:domain cdoc:Lid ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "deficode inhoud"@nl ;
+.
+cdoc:deficodePositie
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cdoc:Lid ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "deficode positie"@nl ;
+.
+cdoc:heeftBron
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "has source"@en ;
+  rdfs:label "heeft bron"@nl ;
+  rdfs:range cdoc:Document ;
+  owl:inverseOf cdoc:isBronVoor ;
+.
+cdoc:heeftJuridischeContext
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-02"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-02"^^xsd:date ;
+  rdfs:domain <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "heeft juridische context"@nl ;
+  rdfs:range cdoc:Context ;
+  owl:inverseOf cdoc:isJuridischeContextVoor ;
+.
+cdoc:hoofdcode
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cdoc:Hoofdstuk ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "hoofdcode"@nl ;
+.
+cdoc:isBevatIn
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Paragraaf
+          cdoc:Artikel
+          cdoc:Lid
+          <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie>
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is bevat in"@nl ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Document
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Artikel
+          cdoc:Paragraaf
+          cdoc:Lid
+        ) ;
+    ] ;
+  owl:inverseOf cdoc:bevat ;
+.
+cdoc:isBronVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain cdoc:Document ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is bron voor"@nl ;
+  rdfs:label "is source for"@en ;
+  rdfs:range skos:Concept ;
+  owl:inverseOf cdoc:heeftBron ;
+.
+cdoc:isFacultatiefBinnenJuridischeContext
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is facultatief binnen juridische context"@nl ;
+  rdfs:range cdoc:Context ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cdoc:isJuridischeContextVoorFacultatieve ;
+.
+cdoc:isJuridischeContextVoor
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-02-02"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-02"^^xsd:date ;
+  rdfs:domain cdoc:Context ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is juridische context voor"@nl ;
+  rdfs:range <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+  owl:inverseOf cdoc:heeftJuridischeContext ;
+.
+cdoc:isJuridischeContextVoorFacultatieve
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain cdoc:Context ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is juridische context voor facultatieve"@nl ;
+  rdfs:range <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cdoc:isFacultatiefBinnenJuridischeContext ;
+.
+cdoc:isJuridischeContextVoorVaste
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain cdoc:Context ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is juridische context voor vaste"@nl ;
+  rdfs:range <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cdoc:isVastBinnenJuridischeContext ;
+.
+cdoc:isVastBinnenJuridischeContext
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-11-17"^^xsd:date ;
+  rdfs:domain <http://ontologie.crow.nl/bibliotheekspecificatie/201711#Specificatie> ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is vast binnen juridische context"@nl ;
+  rdfs:range cdoc:Context ;
+  rdfs:subPropertyOf skos:semanticRelation ;
+  owl:inverseOf cdoc:isJuridischeContextVoorVaste ;
+.
+cdoc:naam
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-04-09"^^xsd:date ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          cdoc:Hoofdstuk
+          cdoc:Deelhoofdstuk
+          cdoc:Paragraaf
+          cdoc:Artikel
+          cdoc:Lid
+        ) ;
+    ] ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "naam"@nl ;
+.
+cdoc:noemt
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-09-04"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-09-04"^^xsd:date ;
+  rdfs:domain cdoc:Begrip ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "mentions"@en ;
+  rdfs:label "noemt"@nl ;
+  rdfs:range skos:Concept ;
+  owl:inverseOf cdoc:wordtGenoemdIn ;
+.
+cdoc:project
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "project"@nl ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+cdoc:referentieId
+  rdf:type owl:DatatypeProperty ;
+  dcterms:created "2017-01-18"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-01-18"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "referentie ID"@nl ;
+.
+cdoc:wordtGenoemdIn
+  rdf:type owl:ObjectProperty ;
+  dcterms:created "2017-09-04"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-09-04"^^xsd:date ;
+  rdfs:domain skos:Concept ;
+  rdfs:isDefinedBy cdoc: ;
+  rdfs:label "is mentioned in"@en ;
+  rdfs:label "wordt genoemd in"@nl ;
+  rdfs:range cdoc:Begrip ;
+  owl:inverseOf cdoc:noemt ;
+.
+skos:Concept
+  dcterms:created "2017-02-17"^^xsd:date ;
+  dcterms:creator "CROW Basisspecificaties project team." ;
+  dcterms:modified "2017-02-17"^^xsd:date ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass xsd:ID ;
+      owl:onProperty <http://purl.org/dc/elements/1.1/identifier> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass xsd:string ;
+      owl:onProperty owl:versionInfo ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+skos:altLabel
+  rdfs:label "synoniem"@nl ;
+.
+skos:prefLabel
+  rdfs:label "titel"@nl ;
+.

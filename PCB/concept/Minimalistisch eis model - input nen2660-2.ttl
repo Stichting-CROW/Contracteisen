@@ -1,0 +1,219 @@
+# baseURI: https://w3id.org/nen2660/skos/term
+# imports: http://www.w3.org/2004/02/skos/core
+# Voorstel voor uitbreiding t.b.v. eisen binnen een contract
+
+@prefix nen2660-term: <https://w3id.org/nen2660/term#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix nen2660-term-a: <aanvulling-voorstel#> .
+
+nen2660-term:Requirement
+  a skos:Concept ;
+  skos:broader nen2660-term:InformationObject ;
+  skos:definition "A rule that should hold for something, defined w.r.t. to its attributes or relations" ;
+  skos:prefLabel "Requirement"@en ;
+.
+nen2660-term-a:MethodRequirement
+  a skos:Concept ;
+  skos:broader nen2660-term:Requirement ;
+  skos:definition "A rule that should hold for another rule, defined w.r.t. to its method for validation or verifing the rule " ;
+  skos:prefLabel "Method requirement"@en ;
+  skos:prefLabel "Methode voorwaarde"@nl ;
+.
+nen2660-term-a:ContractRequirement
+  a skos:Concept ;
+  skos:broader nen2660-term:Requirement ;
+  skos:definition "A rule that can be found within the context of a contract" ;
+  skos:prefLabel "Contract requirement"@en ;
+  skos:prefLabel "Contract voorwaarde"@nl ;
+.
+nen2660-term:EnumerationType
+  a skos:Concept ;
+  skos:broader nen2660-term:Type ;
+  skos:definition "A type having a fixed or extendable set of simple instances having no further attributes or relations"@en ;
+  skos:prefLabel "EnumerationType"@en ;
+ .
+nen2660-term-a:MethodRequirementType
+  a skos:Concept ;
+  skos:broader nen2660-term:EnumerationType ;
+  skos:definition "Predefined methods for verification or validation, as defined in NEN-EN-ISO 9001:2015"@en ;
+  skos:prefLabel "MethodRequirementType"@en ;
+  .
+nen2660-term-a:Determine
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Activity to find out one or more characteristics and their characteristic values."@en ;
+  skos:definition "Activiteit om een of meer kenmerken en hun karakteristieke waarden te achterhalen."@nl ;
+  skos:prefLabel "Determine"@en ;
+  skos:prefLabel "Vaststellen"@nl ;
+.
+nen2660-term-a:Review
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Determination of the suitability, adequacy or effectiveness of an object to achieve established objectives."@en ;
+  skos:definition "Vaststelling van de geschiktheid, toereikendheid of doeltreffendheid van een object voor het bereiken van vastgestelde doelstellingen."@nl ;
+  skos:prefLabel "Review"@en ;
+  skos:prefLabel "Beoordelen"@nl ;
+.
+nen2660-term-a:Monitoring
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Determining the status of a system, a process, a product, a service, or a activity."@en ;
+  skos:definition "Vaststellen van de status van een systeem, een proces, een product, een dienst of een activiteit."@nl ;
+  skos:prefLabel "Monitoring"@en ;
+  skos:prefLabel "Monitoren"@nl ;
+.
+nen2660-term-a:Measuring
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Process to determine a value."@en ;
+  skos:definition "Proces om een waarde vast te stellen."@nl ;
+  skos:prefLabel "Measuring"@en ;
+  skos:prefLabel "Meten"@nl ;
+.
+nen2660-term-a:Inspect
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Determination of conformity to specified requirements."@en ;
+  skos:definition "Vaststelling van conformiteit met gespecificeerde eisen."@nl ;
+  skos:prefLabel "Inspect"@en ;
+  skos:prefLabel "Keuren"@nl ;
+.
+nen2660-term-a:Test
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Determination according to requirements for a specific intended use or application."@en ;
+  skos:definition "Vaststellen volgens eisen voor een specifiek beoogd€ gebruik of toepassing."@nl ;
+  skos:prefLabel "Test"@en ;
+  skos:prefLabel "Beproeven"@nl ;
+.
+nen2660-term-a:Evaluate
+  a skos:Concept ;
+  skos:broader nen2660-term:MethodRequirementType ;
+  skos:definition "Assessment of progress made on achievement of the objectives."@en ;
+  skos:definition "Beoordelen van de voortgang die behaald is met betrekking tot het bereiken van de doelen."@nl ;
+  skos:prefLabel "Evaluate"@en ;
+  skos:prefLabel "Evalueren"@nl ;
+.
+nen2660-term-a:ContractRequirementType
+  a skos:Concept ;
+  skos:broader nen2660-term:EnumerationType ;
+  skos:definition "Predefined types for requirements in contractual context, as defined in Leidraad Systems Engineering V3.0"@en ;
+  skos:prefLabel "ContractRequirementType"@en ;
+.
+nen2660-term-a:TopRequirement
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType ;
+  skos:definition "The description of the required performance of a system regarding an aspect."@en ;
+  skos:definition "De beschrijving van het geheel aan samenhangende of elkaar beïvloedende eisen dat bijdraagt aan het tot standkomen en gebruiken danwel toepassen van het geintegreerde systeem."@nl ;
+  skos:prefLabel "Top requirement"@en ;
+  skos:prefLabel "Topeis"@nl ;
+.
+nen2660-term-a:ProcessRequirement
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TopRequirement ;
+  skos:definition "The description of the requested set of related or interacting activities that converts inputs into outputs."@en ;
+  skos:definition "De beschrijving van het gevraagde geheel van samenhangende of elkaar beïnvloedende activiteiten dat input omzet in output."@nl ;
+  skos:prefLabel "Process requirement"@en ;
+  skos:prefLabel "Proceseis"@nl ;
+.
+nen2660-term-a:FunctionalRequirement
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TopRequirement ;
+  skos:definition "The description of the requested intended operation and/or performance of a system."@en ;
+  skos:definition "De beschrijving van de gevraagde beoogde werking en/of verrichting van een systeem."@nl ;
+  skos:prefLabel "Functional requirement"@en ;
+  skos:prefLabel "Functie eis"@nl ;
+.
+nen2660-term-a:TechnicalRequirement
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TopRequirement ;
+  skos:altLabel "Aspecteis"@nl ;
+  skos:definition "The description of the required performance of a system regarding an aspect."@en ;
+  skos:definition "De beschrijving van de gevraagde prestatie van een systeem aangaande een aspect."@nl ;
+  skos:prefLabel "Technical requirement"@en ;
+  skos:prefLabel "Technische eis"@nl ;
+.
+nen2660-term-a:Reliability
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The probability that the required function will be performed under given conditions during a given time interval."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie wordt uitgevoerd onder gegeven omstandigheden gedurende een bepaald tijdsinterval."@nl ;
+  skos:prefLabel "Reliability"@en ;
+  skos:prefLabel "Betrouwbaarheid"@nl ;
+.
+nen2660-term-a:Availability
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The probability that the required function can be performed at any given time under given conditions."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie op een willekeurig moment kan worden uitgevoerd onder gegeven omstandigheden."@nl ;
+  skos:prefLabel "Availability"@en ;
+  skos:prefLabel "Beschikbaarheid"@nl ;
+.
+nen2660-term-a:Maintainability
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The probability that the activities for maintenance can be carried out within the set times, under given conditions in order to be able to (continue to) perform the required function."@en ;
+  skos:definition "De waarschijnlijkheid dat de activiteiten voor onderhoud kunnen worden uitgevoerd binnen de hiervoor vastgestelde tijden, onder gegeven omstandigheden teneinde de vereiste functie te kunnen (blijven) uitvoeren."@nl ;
+  skos:prefLabel "Maintainability"@en ;
+  skos:prefLabel "Onderhoudbaarheid"@nl ;
+.
+nen2660-term-a:SafetySecurity
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The probability that the required function and the activities required for it can be performed or carried out without any injury to persons and the probability that the integrity of the function and the data and data structures associated with it will be guaranteed against undesirable influence."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie en de daarvoor benodigde activiteiten zonder optredend letsel aan personen kan worden vervuld dan wel uitgevoerd en de waarschijnlijkheid dat de integriteit van de functie  en de daaraan verbonden data en datastructuren gewaarborgd blijven van ongewenste beïnvloeding."@nl ;
+  skos:prefLabel "Safety / Security"@en ;
+  skos:prefLabel "Veiligheid"@nl ;
+.
+nen2660-term-a:Health
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The likelihood that the required function and activities can be performed or carried out without adverse health risks to individuals."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie en de daarvoor benodigde activiteiten zonder negatieve gezondheidsrisico's voor personen kan worden vervuld dan wel uitgevoerd."@nl ;
+  skos:prefLabel "Health"@en ;
+  skos:prefLabel "Gezondheid"@nl ;
+.
+nen2660-term-a:Environment
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The probability that the required function and the activities necessary for it can be performed and/or realised without undesirable risks for the environment."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie en de daarvoor benodigde activiteiten zonder ongewenste risico's voor de omgeving kunnen wordenvervuld en/of  gerealiseerd."@nl ;
+  skos:prefLabel "Environment"@en ;
+  skos:prefLabel "Omgeving"@nl ;
+.
+nen2660-term-a:Sustainability
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The likelihood that the required function and the activities needed for it can be realised within the requirements and PPP (People/Planet/Profit) objectives set for it."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie en de daarvoor benodigde activiteiten binnen de hieraan gestelde eisen en PPP (People/Planet/Profit)-doelstellingen kunnen worden gerealiseerd."@nl ;
+  skos:prefLabel "Sustainability"@en ;
+  skos:prefLabel "Duurzaamheid"@nl ;
+.
+nen2660-term-a:Design
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The description of the required performance with regard to the image and the use of materials, taking into account the environmental and health requirements of the system and its components."@en ;
+  skos:definition "De beschrijving van de gevraagde prestatie ten aanzien van het beeld en het materiaalgebruik met inachtneming van de omgevings- en de gezondheidseisen van het systeem en haar onderdelen."@nl ;
+  skos:prefLabel "Design"@en ;
+  skos:prefLabel "Vormgeving"@nl ;
+.
+nen2660-term-a:FutureProofness
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The description of the required performance of a system in relation to the required lifetime of the system (as a function and as an object) and its components."@en ;
+  skos:definition "De beschrijving van de gevraagde prestatie van een systeem ten aanzien van de vereiste levensduur van het systeem (als functie en als object) en haar onderdelen."@nl ;
+  skos:prefLabel "Future-proofness"@en ;
+  skos:prefLabel "Toekomstvastheid"@nl ;
+.
+nen2660-term-a:Demolishability
+  a skos:Concept ;
+  skos:broader nen2660-term:ContractRequirementType, nen2660-term-a:TechnicalRequirement ;
+  skos:definition "The probability that the required function at end-of-life can be reduced in a controlled manner to at least secondary raw materials and taking into account the other RAMSHE aspects."@en ;
+  skos:definition "De waarschijnlijkheid dat de vereiste functie aan het einde van de levensduur op beheerste wijze kan worden teruggebracht tot minimaal secundaire grondstoffen en met inachtneming van de overige RAMSHE-aspecten."@nl ;
+  skos:prefLabel "Demolishability"@en ;
+  skos:prefLabel "Sloopbaarheid"@nl ;
+.

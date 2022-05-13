@@ -1,0 +1,1 @@
+Deze ReSpec beschrijft de aanleverspecificaties van het CROW Dataplatform en de datamodellen van CROW die gehanteerd worden. Er wordt ingegaan op het publicatieproces, de wijze van aanlevering, de eisen aan de datasets, de definities van Classes en Relaties en de juiste semantiek.
